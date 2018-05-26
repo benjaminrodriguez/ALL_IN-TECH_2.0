@@ -24,7 +24,7 @@ var trait = function (req, res, query) {
 
 	for (var i = 0 ; i < connecte.length ; i++) {
 		if (connecte[i].table !== "" && connecte[i].compte !== query.compte) {
-			partie_en_attente += "<form action = 'req_modele_table_rejointe' method='GET'><input type='submit' name='compte' value='"+ connecte[i].compte +"'></form>";
+			partie_en_attente += "<form action = 'req_attendre_tour' method='GET'><input type='submit' name='compte' value='"+ connecte[i].compte +"'></form>";
 		}			
 	
 	}

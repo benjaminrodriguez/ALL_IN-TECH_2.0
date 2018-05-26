@@ -6,7 +6,7 @@
 "use strict";
 
 var fs = require("fs");
-require('remedial');
+var remedial = require('remedial');
 
 var trait = function (req, res, query) {
 
@@ -38,8 +38,7 @@ var trait = function (req, res, query) {
     page = fs.readFileSync('./html/modele_page_adversaire.html', 'utf-8');
 
     marqueurs = {};
-    marqueurs.erreur = "";
-    marqueurs.compte = "";
+    marqueurs.compte = query.compte;
 	marqueurs.table = query.table;
     page = page.supplant(marqueurs);
 
