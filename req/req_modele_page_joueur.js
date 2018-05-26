@@ -6,23 +6,23 @@
 "use strict";
 
 var fs = require("fs");
-require('remedial');
+var remedial = require('remedial');
 
 var trait = function (req, res, query) {
 
-    var marqueurs;
-    var page;
-	var joueurs;
-	var contenuPartie;
-	var contenu_fichier;
-	var connecte;
-	var debut;
-	var mains;
-	var river;
+var marqueurs;
+var page;
+var joueurs;
+var contenuPartie;
+var contenu_fichier;
+var connecte;
+var debut;
+var mains;
+var river;
 
 // LECTURE DES MODULES
 
-	var distribuer = require("./fonctions/function_distribution_cartes.js");
+	var distribuer = require ("/fonctions/function_distribution_cartes.js");
 
 // PARTIE DEBUTE -> ECRITURE DANS JSON
 	contenu_fichier = fs.readFileSync ('./json/connecte.json' , 'utf-8');
