@@ -1,9 +1,8 @@
 //=========================================================================
 // Site WEB  PI ALL IN'TECH
 // Auteur : ALL IN'TECH
-// Version : 15/05/2018
+// Version : 27/05/2018
 //=========================================================================
-
 "use strict";
 
 var http = require("http");
@@ -37,6 +36,10 @@ var req_coucher = require ("./req/req_coucher.js");
 var req_creerTable_IA = require ("./req/req_creerTable_IA.js");
 var req_modele_table_rejointe = require ("./req/req_modele_table_rejointe.js");
 var req_attendre_tour = require ("./req/req_attendre_tour.js");
+var req_salon_multi = require ("./req/req_salon_multi.js");
+var req_reponse_defi = require ("./req/req_reponse_defi.js");
+var req_page_adversaire = require ("./req/req_page_adversaire.js");
+var req_reponse_hote = require ("./req/req_reponse_hote.js");
 
 var req_erreur = require("./req/req_erreur.js");
 
@@ -77,9 +80,6 @@ var traite_requete = function (req, res) {
                 break;
 			case '/req_creerTable':
 				req_creerTable(req, res, query);
-				break;
-			case '/req_modele_page_joueur':
-				req_modele_page_joueur(req, res, query);
 				break;
 			case '/req_modele_page_joueur':
                 req_modele_page_joueur(req, res, query);
@@ -123,7 +123,18 @@ var traite_requete = function (req, res) {
 			case '/req_attendre_tour':
 				req_attendre_tour (req, res, query);
 				break;
-
+			case '/req_salon_multi':
+				req_salon_multi (req, res, query);
+				break;			
+			case '/req_reponse_defi':
+				req_reponse_defi (req, res, query);
+				break;
+			case '/req_page_adversaire':
+				req_page_adversaire (req, res, query);
+				break;
+			case '/req_reponse_hote':
+				req_reponse_hote (req, res, query);
+				break;
             default:
                 req_statique(req, res, pathname);
                 break;

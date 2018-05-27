@@ -35,11 +35,11 @@ var trait = function (req, res, query) {
 	
 	// AFFICHAGE DE LA PAGE D'ACCUEIL
 
-    page = fs.readFileSync('./html/modele_page_adversaire.html', 'utf-8');
+    page = fs.readFileSync("./html/modele_page_adversaire.html", "UTF-8");
 
     marqueurs = {};
     marqueurs.compte = query.compte;
-	marqueurs.table = query.table;
+	marqueurs.adversaire = query.adversaire;
     page = page.supplant(marqueurs);
 
     res.writeHead(200, {'Content-Type': 'text/html'});

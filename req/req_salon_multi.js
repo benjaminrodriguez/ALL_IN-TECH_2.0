@@ -1,7 +1,12 @@
+//=========================================================================
+// Traitement de "req_salon_multi"
+// Auteur :ALL IN'TECH 
+// Version : 27/05/2018
+//=========================================================================
 "use strict";
 
 var fs = require("fs");
-require('remedial');
+var remedial = require('remedial');
 
 var trait = function (req, res, query) {
 
@@ -10,59 +15,60 @@ var trait = function (req, res, query) {
 	var page;
 	var i;
 	var trouve;
-	var membre_co_salon;
+	var membre_connecte;
 	var contenu_fichier;
 	var liste_membres;
 	var liste;
 	var test;
 
-	// RECUPERATION DU JSON "salon.json"
+	// RECUPERATION DU JSON "connecte.json"
 
-	contenu_fichier = fs.readFileSync("./json/salon.json", 'utf-8');
+	contenu_fichier = fs.readFileSync("./json/connecte.json", 'utf-8');
 	liste_membres = JSON.parse(contenu_fichier);
 
-	// PREMIER CAS : LE JOUEUR EST DANS LE JSON "salon.json"
-
+	// PREMIER CAS : LE JOUEUR EST DANS LE JSON "connecte.json"
 	test = false;
-
-	for(i = 0; i < liste_membres.length; i++){
-		if(liste_membres[i].compte === query.compte){
+	for(i = 0; i < liste_membres.length; i++) {
+		if(liste_membres[i].compte === query.compte) {
 			test = true;
-			liste_membres[i].etat = "connecté";
-			liste_membres[i].libre = "oui";
+			liste_membres[i].connecte = true;
+			liste_membres[i].libre = true;
 			contenu_fichier = JSON.stringify(liste_membres);
-			fs.writeFileSync("./json/salon.json", contenu_fichier, 'utf-8');
+			fs.writeFileSync("./json/connecte.json", contenu_fichier, 'utf-8');
 		}
 	}
 
-	//SECOND CAS : LE JOUEUR N'EST PAS PRÉSENT DANS LE JSON "salon.json" 
-	//-->(première connexion)
 
-	if(test === false){
-		membre_co_salon = {};
-		membre_co_salon.compte = query.compte;
-		membre_co_salon.etat = "connecté";
-		membre_co_salon.libre = "oui";
-		membre_co_salon.adversaire = "non";
-		liste_membres.push(membre_co_salon);
+
+	//SECOND CAS : LE JOUEUR N'EST PAS PRÉSENT DANS LE JSON "connecte.json" 
+	
+
+	if(test === false) {
+		membre_connecte = {};
+		membre_connecte.compte = query.compte;
+		membre_connecte.connecte = true;
+		membre_connecte.libre = true;
+		membre_connecte.adversaire = false;
+		liste_membres.push(membre_connecte);
 
 		contenu_fichier = JSON.stringify(liste_membres);
-		fs.writeFileSync("./json/salon.json", contenu_fichier, 'utf-8');
+		fs.writeFileSync("./json/connecte.json", contenu_fichier, 'utf-8');
 	}
 
 
-
-	contenu_fichier = fs.readFileSync("./json/salon.json", 'utf-8');
+	contenu_fichier = fs.readFileSync("./json/connecte.json", 'utf-8');
 	liste_membres = JSON.parse(contenu_fichier);
 
 	liste= "";
 	for (i = 0; i < liste_membres.length; i++) {
-		if (liste_membres[i].compte !== query.compte && liste_membres[i].etat === "connecté" && liste_membres[i].libre === "oui") {
-			liste += "<form action = 'req_defie' method='GET'><input type = 'hidden' name='compte' value='"+ query.compte +"'><input type='submit' name='adversaire' value='"+ liste_membres[i].compte +"'></form>";
+		if (liste_membres[i].compte !== query.compte && liste_membres[i].connecte === true && liste_membres[i].libre === true) {
+			liste += "<form action = './req_reponse_defi' method='GET'><input type = 'hidden' name='compte' value='"+ query.compte +"'><input type ='submit' name ='adversaire' value='"+ liste_membres[i].compte +"'></form>";
 		}
 	}
 
-	page = fs.readFileSync('./html/res_salon.html', 'UTF-8');
+	
+	// AFFICHAGE DE LA PAGE
+	page = fs.readFileSync('./html/modele_salon_multi.html', 'UTF-8');
 
 	marqueurs = {};
 	marqueurs.compte = query.compte;
@@ -73,20 +79,9 @@ var trait = function (req, res, query) {
 	res.writeHead(200, {'Content-Type': 'text/html'});
 	res.write(page);
 	res.end();
-}
+
+};
 
 //---------------------------------------------------------------------------
 
 module.exports = trait;
-
-~                                                                                                                                                                                           
-~                                                                                                                                                                                           
-~                                                                                                                                                                                           
-~                                                                                                                                                                                           
-~                                                                                                                                                                                           
-~                                                                                                                                                                                           
-~                                                                                                                                                                                           
-~                                                                                                                                                                                           
-~                                                                                                                                                                                           
-1,1          Tout
-

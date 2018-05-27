@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Accueil membre</title>
+		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+		<link rel="shortcut icon" href="./img/Jeton-de-poker-en-carton-mini.jpg" type="image/x-icon" /> </head>
+
+	<body>
+		<body background = "../img/tapis_poker_vert_1920x1080.jpg">
+		
+
+		<center><img src = "./img/logo/logo-final-584-289.png"></center>
+		<center><h2>Bienvenue sur la page d'accueil membre !</h2></center>
+
+		<h2>Bonjour <em>{compte}</em></h2>
+
+		</p>
+		<a href="./req_actualiser_accueil_membre?compte={compte}">actualiser</a>
+		<fieldset>
+			
+			<h2>Création table</h2>
+
+			<a href="./req_creerTable?compte={compte}&table={compte}">créer table</a>
+		</fieldset>
+
+		<fieldset>
+
+			<h2>Partie disponible à rejoindre</h2>
+		
+			
+				{partie_en_attente}
+
+
+		</fieldset>
+
+		<fieldset>
+			
+			<h2>PARTIE LOCAL</h2>
+			<a href="./req_creerTable_IA?compte={compte}"></a>
+		</fieldset>
+
+		<fieldset>
+
+			</hr>
+
+			<h2>Partie accessibles visiteur</h2>
+
+
+		</fieldset>
+
+	</body>
+
+</html>
+

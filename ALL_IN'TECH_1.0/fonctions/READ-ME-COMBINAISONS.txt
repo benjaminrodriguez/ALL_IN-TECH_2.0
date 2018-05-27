@@ -1,0 +1,17 @@
+La "puissance de chaque main est donnée par la variable valeurMain.
+
+- la carte haute = 1
+- la paire = 2
+- la double paire = 3
+- le brelan = 4
+- la quinte = 5
+- la couleur = 6
+- le full = 7
+- le carré = 8
+- la quinte flush = 9
+- la quinte flush royale = 10
+
+
+Différentes combinaisons disponibles ici : 
+
+https://poker.pmu.fr/ecole-de-poker/bases-poker/debutants/classement-des-mains.html

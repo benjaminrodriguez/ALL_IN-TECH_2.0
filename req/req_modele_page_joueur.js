@@ -14,6 +14,7 @@ var trait = function (req, res, query) {
     var page;
 	var joueurs;
 	var contenuPartie;
+	var partie;
 	var contenu_fichier;
 	var connecte;
 	var debut;
@@ -22,7 +23,7 @@ var trait = function (req, res, query) {
 
 // LECTURE DES MODULES
 
-	var distribuer = require("./fonctions/function_distribution_cartes.js");
+	var distribuer = require("../fonctions/function_distribution_cartes.js");
 
 // PARTIE DEBUTE -> ECRITURE DANS JSON
 	contenu_fichier = fs.readFileSync ('./json/connecte.json' , 'utf-8');
@@ -43,15 +44,16 @@ var trait = function (req, res, query) {
 	// DISTRIBUTION DES CARTES
 	
     
-    contenuPartie = fs.readFileSync("./tables/"+query.compte+".json", contenuPartie, "UTF-8");
+    contenuPartie = fs.readFileSync("./tables/"+query.compte+".json", "UTF-8");
 	partie = JSON.parse(contenuPartie);
-
+	
+	joueurs = partie.joueurs;
 	mains = partie.main;
 	river = partie.river;
 
-	distribuer(mains, river);
+	distribuer(joueurs, mains, river);
 
-	contenuPartie = JSON.stringify(joueurs);
+	contenuPartie = JSON.stringify(partie);
 	fs.writeFileSync("./tables/"+query.compte+".json", contenuPartie, "UTF-8");
 	
 	
