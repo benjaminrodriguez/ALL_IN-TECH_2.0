@@ -1,12 +1,12 @@
 //=========================================================================
 // Traitement de "req_modele_table_rejointe"
 // Auteur : ALL IN'TECH 
-// Version : 23/05/2018
+// Version : 28/05/2018
 //=========================================================================
 "use strict";
 
 var fs = require("fs");
-var remedial = require('remedial');
+var remedial = require("remedial");
 
 var trait = function (req, res, query) {
 
@@ -42,13 +42,7 @@ var trait = function (req, res, query) {
 	table = JSON.parse(contenu);
 	 
 
-	
-
-
-
-// AFFICHAGE DE LA PAGE D'ACCUEIL
-    page = fs.readFileSync('./html/modele_page_adversaire.html', 'utf-8');
-
+	// MARQUEURS
 	marqueurs = {};
 	marqueurs.compte = query.compte;
 	marqueurs.table = query.table;

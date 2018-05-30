@@ -1,49 +1,26 @@
 <!DOCTYPE html>
-
 <html>
 	<head>
 		<title>Salon multi</title>
-		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-		<meta http-equiv="refresh" content="3; url=/req_reponse_defie?compte={compte}">
+		<meta http-equiv = 'Content-Type' content = 'text/html; charset=utf-8' />
+		<link rel = "shortcut icon" href = "../img/lacoste.png" type = "image/x-icon"/> 
+		<meta http-equiv = "refresh" content = "5; url=/req_reponse_hote?compte={compte}">
 	</head>
-	<body>
-		<body background = "./img/">
 
-		<center><h1>ALL IN'TECH</h1></center>
-
-		<h2>Bienvenue <label><em>{compte}</em></label>, vous êtes dans le salon multijoueurs !
-		</h2><br><br>
-
-		<fieldset>
-		<center><strong><u><h2>Membres connectés :</h2></center></trong></u>
-		C'est ici que tout commence ! N'hésite pas à cliquer sur le pseudo d'un joueur pour le lancer un défi ! <br> Que le meilleur gagne ! <br> <br>
-
-		<form action="/req/req_actualise_accueil_membre" method="GET">
-			<button name="action" value="retour_accueil">Retour à l'accueil</button>
-			<input type = "hidden" name = "compte" value = "{compte}">
-		</form>
-		<hr><br>
-
-		{joueurs}   
-
-
-
+	<body background = "./img/tapis_poker_vert_1920x1080.jpg">
+		<center>
+			<img src = "./img/logo/logo-final-584-289.png"><br><br>
+			<h2>Bienvenue <label><em>{compte}</em></label> dans le salon multijoueurs !
+			</h2><br><br>
+			<h2>Qui veux tu défier ?</h2>
+			<br>
+			{joueurs}   
+			<br><br>
+			<img src = "../img/gif/200w_005.gif">
+			<br><br>
+			<a href = "./req_actualiser_accueil_membre?compte={compte}">Retour à l'accueil membre</a>
+			<br><br><br><br><br><br>
+			<a href = "./req_deconnexion?compte={compte}">Deconnexion</a>
+		</center>
 	</body>
-
 </html>
-
-~                                                                                                                                     
-~                                                                                                                                     
-~                                                                                                                                     
-~                                                                                                                                     
-~                                                                                                                                     
-~                                                                                                                                     
-~                                                                                                                                     
-~                                                                                                                                     
-~                                                                                                                                     
-~                                                                                                                                     
-~                                                                                                                                     
-~                                                                                                                                     
-41,1-4       Tout
-
-

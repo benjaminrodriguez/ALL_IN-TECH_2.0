@@ -1,118 +1,120 @@
 //========================================================================
 // Traitement de "req_creerTable"
-// Auteur : ALL'INTECH 
+// Auteur : ALL IN'TECH 
 // Version : 16/05/18
 //=========================================================================
 "use strict";
 
 var fs = require("fs");
-var remedial = require('remedial');
+var remedial = require("remedial");
 
 var trait = function (req, res, query) {
 
-    var marqueurs;
-    var page;
+	var marqueurs;
+	var page;
 	var partie = [];
 	var contenu_partie;
 	var contenu_fichier;
 	var connecte;
 	var i;
+	var a; 
+	var b;
 	var nouvellePartie;
-
-/*
-
-	ON GARDE ????
-
-	partie.joueurs = [];
-	partie.enJeu = false;
-	partie.tour = 0;
-	partie.riviere = [];
-	partie.main = [];
-	partie.mise = [];
-	partie.solde = [];
-
-	contenu_partie = JSON.stringify(partie);
-	fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie,  "UTF-8");
-*/
-	// LANCEMENT PARTIE EN ATTENTE -> TRUE
-	contenu_fichier = fs.readFileSync ('./json/connecte.json' , 'utf-8');
-	connecte = JSON.parse(contenu_fichier);
+	var distribution;
+	var melange;
+	var mains;
+	var river;
+	var membres;
 	
-	for (i = 0 ; i < connecte.length; i++) {
-		if (query.compte === connecte[i].compte) { 
-			connecte[i].table = query.compte;
+	contenu_fichier = fs.readFileSync("./json/connecte.json", "UTF-8");
+    membres = JSON.parse(contenu_fichier);
+
+	// ON DONNE LA DISPONIBILITE DE CHAQUE JOUEURS
+	for (a = 0 ; a < membres.length ; a++) {
+		if (membres[a].compte === query.compte) {
+			membres[a].connecte = "joue";
+		}
+	}
+	for (b = 0 ; b < membres.length ; b++) {
+ 		if (membres[b].compte === query.adversaire) {
+			membres[b].connecte = "joue";
 		}
 	}
 	
-	contenu_fichier = JSON.stringify (connecte);
-	fs.writeFileSync ('./json/connecte.json' , contenu_fichier , 'utf-8');
+	contenu_fichier = JSON.stringify(membres);
+	fs.writeFileSync("./json/connecte.json" , contenu_fichier , "UTF-8");
+	
+	
 
+// ============================================================================
+// ============================================================================
+
+
+	// CODE JEU
+
+	// APPEL DES MODULES MELANGER ET LES COMBINAISONS
+	melange = require("../fonctions/function_melange_cartes.js");
+	distribution = require("../fonctions/function_distribution_cartes.js");
+
+	// APPEL DES FONCTIONS
+	melange();
 
 	// ECRITURE DU JSON DE PARTIE
-
 	nouvellePartie = {};
 	nouvellePartie.admin = query.compte;
-	nouvellePartie.en_jeu = false;
-	
+
+	// JOUEURS DE LA PARTIE
 	nouvellePartie.joueurs = [];
 	nouvellePartie.joueurs[0] = query.compte;
-	//nouvellePartie.joueurs[1] = "titi";
-	//nouvellePartie.joueurs[2] = "toto"
+	nouvellePartie.joueurs[1] = query.adversaire;
 
+	// TOUR DE JEU
+	nouvellePartie.tour = query.compte; 
+
+	// CARTES DE LA RIVIERE
 	nouvellePartie.river = [];
-	nouvellePartie.river[0] = {"valeur" : 0 , "couleur" : "k"};
-	nouvellePartie.river[1] = {"valeur" : 0 , "couleur" : "p"};
-	nouvellePartie.river[2] = {"valeur" : 0 , "couleur" : "c"};
-	nouvellePartie.river[3] = {"valeur" : 0 , "couleur" : "t"};
-	nouvellePartie.river[4] = {"valeur" : 0 , "couleur" : "k"};
 
+	// CARTES EN MAIN
 	nouvellePartie.main = [];
 	nouvellePartie.main[0] = [];
-	nouvellePartie.main[0][0] = {"valeur" : 0 , "couleur" : "p"};
-	nouvellePartie.main[0][1] = {"valeur" : 0 , "couleur" : "k"}; 
-
 	nouvellePartie.main[1] = [];
-	nouvellePartie.main[1][0] = {"valeur" : 0 ,"couleur" : "p"};
-	nouvellePartie.main[1][1] = {"valeur" : 0 ,"couleur" : "t"};
 
-	nouvellePartie.main[2] = [];
-	nouvellePartie.main[2][0] = {"valeur" : 0 , "couleur": "t"};
-	nouvellePartie.main[2][1] = {"valeur" : 0 , "couleur" : "k"};
-
+	// MISE DE CHAQUE JOUERS
 	nouvellePartie.mise = [];
 	nouvellePartie.mise[0] = 0 ;
 	nouvellePartie.mise[1] = 0 ;
-	nouvellePartie.mise[2] = 0 ;
-	
-	for (var i = 0 ; i < nouvellePartie.mise[i] ; i++) {
+
+	for (i = 0 ; i < nouvellePartie.mise[i] ; i++) {
 		nouvellePartie.solde += nouvellePartie.mise[i];
 	}
-
+	// SOLDE DE CHAQUE JOUEURS, SOLDE DE DEPART DE 100
 	nouvellePartie.solde = [];
-	nouvellePartie.solde[0] = "44";
-	nouvellePartie.solde[1] = "33";
-	nouvellePartie.solde[2] = "2408";
+	nouvellePartie.solde[0] = 100;
+	nouvellePartie.solde[1] = 100;
 
+	// DISTRIBUTION DES CARTES DANS LA MAIN ET DANS LA RIVIERE
+	mains = nouvellePartie.main;
+	river = nouvellePartie.river;
 
-	//listeConnecte[listeConnecte.length] = nouvellePartie;
+	distribution(mains, river);
 
+	// ECRITURE DANS LE JSON DE PARTIE AVEC LES NOUVELLES DONNEES
 	contenu_partie = JSON.stringify(nouvellePartie);
+	fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie, "UTF-8");
 
-	fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie, 'utf-8');
 
+	// AFFICHAGE DE LA PAGE DE JEU
+	page = fs.readFileSync("./html/modele_page_joueur.html" , "UTF-8");
 
-	// AFFICHAGE DE LA PAGE
-
-    page = fs.readFileSync('./html/modele_page_table.html' , 'utf-8');
-
-    marqueurs = {};
-    marqueurs.compte = query.compte;
+	marqueurs = {};
+	marqueurs.compte = query.compte;
+	marqueurs.adversaire = query.adversaire;
 	marqueurs.tables = query.compte;
-    page = page.supplant(marqueurs);
+	page = page.supplant(marqueurs);
 
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write(page);
-    res.end();
+	res.writeHead(200, {'Content-Type': 'text/html'});
+	res.write(page);
+	res.end();
 };
 //--------------------------------------------------------------------------
 

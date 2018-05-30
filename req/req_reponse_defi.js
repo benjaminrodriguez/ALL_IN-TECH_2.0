@@ -1,83 +1,65 @@
+//=========================================================================
+// Traitement de "req_reponse_defi"
+// Auteur : ALL IN'TECH
+// Version : 28/05/2018
+//=========================================================================
 "use strict";
 
 var fs = require("fs");
-require('remedial');
-
+var remedial = require ("remedial");
 
 var trait = function (req, res, query) {
 
-	var contenu_fichier;
-	var liste_membres;
-	var compte;
-	var adversaire_trouve;
-	var adversaire;
-	var liste;
-	var i;
 	var marqueurs;
+	var contenu_fichier;
+	var membres;
+	var i;
+	var a;
 	var page;
+	var adversaire_trouve;
+	var compte;
 
-
-	// LECTURE DU JSON "salon.json" --> VOIR SI ÉTAT PASSE EN "attente" 
-
-	contenu_fichier = fs.readFileSync("./json/salon.json", "utf-8");
-	liste_membres = JSON.parse(contenu_fichier);
-
-	adversaire_trouve = false
-
-		for (i = 0; i < liste_membres.length; i++) {
-			if (liste_membres[i].compte == query.compte) {
-				compte = liste_membres[i].compte;
-				if (liste_membres[i].etat == "attente") {
-					adversaire_trouve = true;
-					adversaire = liste_membres[i].adversaire;
-				}
+	// LECTURE DU JSON CONNECTE POUR SAVOIR QUELS JOUEURS VEULENT JOUER
+	contenu_fichier = fs.readFileSync("./json/connecte.json", "UTF-8");
+	membres = JSON.parse (contenu_fichier);
+	
+	adversaire_trouve = false;
+	// REDIRECTION VERS LES DIFFERENTES PAGES QUAND JOUEUR DÉFIÉ
+	for (i = 0 ; i < membres.length; i++) {
+		if (membres[i].compte === query.compte) {
+			a=i;
+			if (membres[a].connecte === true) {
+				adversaire_trouve = true; 	
+			} else {
+				adversaire_trouve = false;
 			}
 		}
+	}
 
+	if (membres[a].connecte === false) {
+		page = fs.readFileSync("./html/modele_attendre_reponse.html" , "UTF-8");
+	} else if (membres[a].connecte === "joue") {
+		page = fs.readFileSync("./html/modele_page_adversaire.html", "UTF-8");
+	// PASSE DIRECT ICI
+	} else {
+//		page = fs.readFileSync("./html/modele_salon_multi.html", "UTF-8");
+		page = fs.readFileSync("./html/modele_page_adversaire.html", "UTF-8");
 
-	// REDIRECTION VERS PAGE HTML SI JOUEUR DÉFIÉ
-
-	if (adversaire_trouve === false) {
-		page = fs.readFileSync('./html/res_salon.html','utf-8');
-	} else if (adversaire_trouve === true) {
-		page = fs.readFileSync("./html/res_reponse_defie.html", "utf-8");
 	}
 
 
-
-	liste= "";
-	for (i = 0; i < liste_membres.length; i++) {
-		if (liste_membres[i].compte !== query.compte && liste_membres[i].etat === "connecté" && liste_membres[i].libre === "oui") {
-			liste += "<form action = 'req_defie' method='GET'><input type = 'hidden' name='compte' value='"+ query.compte +"'><input type='submit' name='adversaire' value='"+ liste_membres[i].compte +"'></form>";
-		}
-	}
-
+	// MARQUEURS
 	marqueurs = {};
-	marqueurs.joueurs = liste;
+	marqueurs.adversaire = query.adversaire;
 	marqueurs.compte = query.compte;
-	marqueurs.adversaire = adversaire;
 	page = page.supplant(marqueurs);
 
-
-	res.writeHead(200, {'Content-type': 'text/html'});
+	res.writeHead(200, {'Content-Type': 'text/html'});
 	res.write(page);
 	res.end();
 
 };
-//==================================================
+
+//-------------------------------------------------------------------------//
 
 module.exports = trait;
-
-~                                                                                                                                                                                           
-~                                                                                                                                                                                           
-~                                                                                                                                                                                           
-~                                                                                                                                                                                           
-~                                                                                                                                                                                           
-~                                                                                                                                                                                           
-~                                                                                                                                                                                           
-~                                                                                                                                                                                           
-~                                                                                                                                                                                           
-~                                                                                                                                                                                           
-~                                                                                                                                                                                           
-1,1          Tout
-

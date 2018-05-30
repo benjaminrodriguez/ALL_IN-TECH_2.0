@@ -1,12 +1,12 @@
 //=========================================================================
 // Traitement de "req_afficher_formulaire_inscription"
-// Auteur : P. Thiré
-// Version : 09/10/2015
+// Auteur : ALL IN'TECH
+// Version : 27/05/2018
 //=========================================================================
 "use strict";
 
 var fs = require("fs");
-require('remedial');
+var remedial = require("remedial");
 
 var trait = function (req, res, query) {
 
@@ -14,12 +14,11 @@ var trait = function (req, res, query) {
     var page;
 
     // AFFICHAGE DE LA modele_formulaire_inscription
-
-    page = fs.readFileSync('./html/modele_formulaire_inscription.html', 'utf-8');
+    page = fs.readFileSync('./html/modele_formulaire_inscription.html', 'UTF-8');
 
     marqueurs = {};
     marqueurs.erreur = "";
-    marqueurs.compte = "";
+    marqueurs.compte = query.compte;
     page = page.supplant(marqueurs);
 
     res.writeHead(200, {'Content-Type': 'text/html'});

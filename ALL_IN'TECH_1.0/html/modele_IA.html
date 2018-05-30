@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page de jeu contre IA</title>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <link rel="shortcut icon" href="./img/Jeton-de-poker-en-carton-mini.jpg" type="image/x-icon" /> 
+
+</head>
+
+
+<body>
+
+    <body background = "../img/tapis_poker_vert_1920x1080.jpg">
+
+
+    <label>A vous de jouer <em>{compte}</em> contre M. ALL IN'TECH, que voulez vous faire ?</label><br><br>
+
+    <a href = "./req_miser?compte={compte}&table={compte}">Miser</a>
+
+    <br><br>
+
+     <a href = "./req_checker?compte={compte}&table={compte}">checker</a>
+
+    <br><br>
+
+    <a href = "./req_relancer?compte={compte}&table={compte}">Relancer></a>
+
+    <br><br>
+
+    <a href = "./req_suivre?compte={compte}&table={compte}">Suivre</a>
+
+    <br><br>
+
+    <a href = "./req_coucher?compte={compte}&table={compte}">Coucher</a>
+
+	<br><br>
+	<a href = "./req_quitter_table_rejointe?compte={compte}&table={compte}">Quitter</a>
+
+</body>
+
+</html>
+

@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<title>ACCUEIL</title>
+		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+		<link rel="shortcut icon" href="./img/Jeton-de-poker-en-carton-mini.jpg" type="image/x-icon" /> 
+
+	</head>
+
+
+	<body>
+		<body background = "./img/tapis_poker_vert_1920x1080.jpg">
+
+		<center><img src = "./img/logo/logo-final-1024x517.jpg">
+
+		<br>
+		{erreur}
+
+		<p/>
+
+		<form action="/req_identifier" method="GET"> 
+		<h2>	Pseudo :</h2> <input type="text" name="compte" value="{compte}"> 
+				<br/>
+		<h2>	  Mot de passe : </h2> <input type="password" name="mdp" value="">
+				<br/><br>
+				<input type="submit" name="action" value="Se connecter">
+		</form>
+
+		<p/>
+
+		<form action="/req_afficher_formulaire_inscription" method="GET">
+			<input type = "submit" value = "Créer un compte">
+		</form>
+
+		</center>
+	</body>
+
+</html>

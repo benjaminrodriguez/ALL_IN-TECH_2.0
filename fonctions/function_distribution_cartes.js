@@ -11,16 +11,12 @@ var fs = require("fs");
 
 // DEBUT DE LA FONCTION
 
-var function_distribution_cartes = function (joueurs, riviere) {
+var function_distribution_cartes = function (main, riviere) {
 
 	// VARIABLE  JSON
-	//var contenuJoueur;
+
 	var contenuCarte;
-	//var contenuRiviere;
-	// UTILE ?
-	//var joueurs;
 	var cartes;
-	//var riviere;
 
 	// VARIABLE
 	var i;
@@ -29,22 +25,16 @@ var function_distribution_cartes = function (joueurs, riviere) {
 
 	// LECTURE DU JSON
 
-//	contenuJoueur = fs.readFileSync("./json/table1.json", "UTF-8");
-//	joueurs = JSON.parse(contenuJoueur);
-
 	contenuCarte = fs.readFileSync("./json/testcartes.json", "UTF-8");
 	cartes = JSON.parse(contenuCarte);
-
-//	contenuRiviere = fs.readFileSync("./json/riviere.json", "UTF-8");
-//	riviere = JSON.parse(contenuRiviere);
 
 	// DISTRIBUTION DES CARTES AUX JOUEURS
 
 		x = 0;
-	for(i = 0; i < joueurs.length ; i++){
-		joueurs.main[0][i].push(cartes[x]);
+	for(i = 0; i < 2; i++){
+		main[i].push(cartes[x]);
 		x++;
-		joueurs.main.Carte2.push(cartes[x]);
+		main[i].push(cartes[x]);
 		x++;
 	}	
 

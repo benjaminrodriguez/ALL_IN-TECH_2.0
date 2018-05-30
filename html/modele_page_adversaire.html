@@ -4,16 +4,21 @@
 	<head>
 		<title>Page attente</title>
 		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-		<link rel="shortcut icon" href="./img/Jeton-de-poker-en-carton-mini.jpg" type="image/x-icon" /> 
-		<meta http-equiv = "refresh" content = " 2 ; URL = ./req/req_attendre_tour?compte={compte}">
+		<link rel = "shortcut icon" href = "../img/lacoste.png" type = "image/x-icon"/> 
+		<meta http-equiv = "refresh" content = " 2 ; URL = ./req_attendre_tour?compte={compte}&adversaire={adversaire}">
 	</head>
 
 
 	<body>
 		<body background = "../img/tapis_poker_vert_1920x1080.jpg">
 		<input type="hidden" name="compte" value="{compte}&table={table}">
-		<label> Veuillez patienter votre tour và bientôt arriver</label>
-				
+		<center>
+		<h2> Veuillez patienter votre tour và bientôt arriver</h2>
+		<br><br>
+		<h5>Pour patienter, combien penses-tu qu'il y va y avoir de carrés ?</h5>
+		<img src = "../img/gif/square.gif">
+		<br><br><br><br><br><br><br><br>
+        <a href = "./req_deconnexion?compte={compte}">Deconnexion</a>
+	</center>				
 	</body>
-
 </html>

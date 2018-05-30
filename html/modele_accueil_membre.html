@@ -4,52 +4,37 @@
 	<head>
 		<title>Accueil membre</title>
 		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-		<link rel="shortcut icon" href="./img/Jeton-de-poker-en-carton-mini.jpg" type="image/x-icon" /> </head>
-
+		<link rel = "shortcut icon" href = "../img/lacoste.png" type = "image/x-icon"/> 
 	<body>
 		<body background = "../img/tapis_poker_vert_1920x1080.jpg">
 		
 
 		<center><img src = "./img/logo/logo-final-584-289.png"></center>
 		<center><h2>Bienvenue sur la page d'accueil membre !</h2></center>
-
+		<center>
 		<h2>Bonjour <em>{compte}</em></h2>
 
 		</p>
-		<a href="./req_actualiser_accueil_membre?compte={compte}">actualiser</a>
+		<a href = "./req_actualiser_accueil_membre?compte={compte}">Actualiser</a>
 		<fieldset>
 			
-			<h2>Création table</h2>
+			<h2>Rejoindre le salon multijoueur</h2>
 
-			<a href="./req_creerTable?compte={compte}&table={compte}">créer table</a>
-		</fieldset>
-
-		<fieldset>
-
-			<h2>Partie disponible à rejoindre</h2>
+			<a href="./req_salon_multi?compte={compte}">Salon multijoueur</a>
 		
-			
-				{partie_en_attente}
+			<hr>
 
-
-		</fieldset>
-
-		<fieldset>
-			
-			<h2>PARTIE LOCAL</h2>
-			<a href="./req_creerTable_IA?compte={compte}"></a>
-		</fieldset>
-
-		<fieldset>
-
-			</hr>
+			<h2>PARTIE LOCAL VS IA</h2>
+			<a href="./req_creerTable_IA?compte={compte}">VS IA</a><br>
+			<label> A VENIR !!!!</label>		
+			<hr>
 
 			<h2>Partie accessibles visiteur</h2>
-
-
+			<label>A VENIR !!!!!</label>
+			<br><br>
 		</fieldset>
-
+			<br><br>
+			<a href = "./req_deconnexion?compte={compte}">Deconnexion</a>
+		</center>
 	</body>
-
 </html>
-

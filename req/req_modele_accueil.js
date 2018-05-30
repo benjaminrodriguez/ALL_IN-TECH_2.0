@@ -1,12 +1,12 @@
 //=========================================================================
 // Traitement de "req_retour_modele_accueil"
 // Auteur : ALL IN'TECH
-// Version : 25/04/2018
+// Version : 28/05/2018
 //=========================================================================
 "use strict";
 
 var fs = require("fs");
-require('remedial');
+var remedial = require("remedial");
 
 var trait = function (req, res, query) {
 
@@ -14,12 +14,11 @@ var trait = function (req, res, query) {
     var page;
 
     // AFFICHAGE DE LA PAGE D'ACCUEIL
-
     page = fs.readFileSync('./html/modele_accueil.html', 'utf-8');
 
     marqueurs = {};
-    marqueurs.erreur = "";
-    marqueurs.compte = "";
+    marqueurs.compte = query.compte;
+	marqueurs.adversaire = query.adversaire;
 	marqueurs.table = query.table;
     page = page.supplant(marqueurs);
 

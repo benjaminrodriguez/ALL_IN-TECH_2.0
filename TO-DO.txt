@@ -3,14 +3,10 @@
 - IA
 - Peut etre un bug au niveau du valeurMain
 - completer la confirmation de mdp lors de l'inscription
-- afficher les cartes sur la page du joueur
-- afficher les partie en attente de lancement sur le salon
 - distribuer les cartes à des joueurs
-- faire le changement de joueur actif/passif
-- mettre dans toutes les req query.adversaire pour savoir contre qui on joue
-- dans page modele_accueil_membre afficher "joueurs.debute" pour savoir qu'une partie est en attente de lancement
-- dans modele page adversaire le compte ne se met pas après le refresh 
-- afficher les parties disponibles à voir dans le salon et les envoyer vers modele page adversaire
-- quand l'admin lance la partie l'adversaire n'est pas redirigée vers la page
-- quand une partie est finie passer partie_en_attente en false
-- refresh sur modele table rejointe envoie vers error 404
+- affichage des cartes, du pot, du solde, joueurs sur la page modele joueur
+- finir la page modele adversaire
+- dans req_attendre_tour -> faire la redirection
+- voir si on peut pas regrouper toutes les actions -> checker, miser, relancer, se coucher, suivre exemple : checkbox
+- mettre le query.table pour pouvoir le reprendre dans les JSON
+- dans req_reponse defi petit bug

@@ -1,53 +1,23 @@
-
-<!doctype html>
-
+<!DOCTYPE HTML>
 <html>
-
     <head>
-	        <meta charset = "UTF-8">
-		    <title>réponse défis</title>
-					    </head>
+        <meta charset = "UTF-8">
+	    <title>Reponse defi</title>
+		<link rel = "shortcut icon" href = "../img/lacoste.png" type = "image/x-icon"/> 
+    </head>
 
-
-
-
-<body background = "./img/">
-
-<fieldset>
-
-<center><strong><h1><em>{adversaire}</em> souhaite vous défier !</h1>
-<h3>Souhaitez-vous relever le challenge ?</h3> 
-</strong>
-
-<hr>
-<form action = "/req_oui" method = "get">
-
-<input type = "hidden" name = "compte" value = "{compte}">
-<input type = "hidden" name = "adversaire" value = "{adversaire}">
-<input type = "hidden" name = "joueur" value = "actif">
-<input type = "submit" name = "commencer_partie" value = "Commencer la partie !">
-</form><br>
-
-<form action = "/req_retour" method = "get">
-<input type = "hidden" name = "compte" value = "{compte}">
-<input type = "hidden" name = "adversaire" value = "{adversaire}">
-<input type = "submit" name = "non" value = "Non, retour au Salon">
-</form>
-
-<strong><h2><u>Jeu du Serpent :</h2></strong> </center></u>
-
-<u><strong>But du jeu :</strong></u> <blockquote>Arriver le premier sur la case 100. Déroulement : Pour commencer le plus               jeune
-des joueurs lance le dé et avance son pion du nombre indiqué sur le dé. <br> 
-Le pion arrive sur le bas d'une échelle, on monte dans la case où il y a le haut de l'échelle.<br>
-Le pion arrive sur le bas d’une échelle, on monte dans la case où il y a le haut de             l’échelle.<br>
-Le pion arrive sur la queue du serpent, on descend dans la case où il y a la tête du                serpent.<br>
-Le pion arrive sur une case normale, on ne bouge pas.<br>
-Le pion arrive sur une case déjà occupée, on retourne au départ.</blockquote>
-<center><img src = "./html/defie.gif"></center>
-
-
-</fieldset>
-
-
-10,1-4        75%
-
+	<body>
+		<body background = "../img/tapis_poker_vert_1920x1080.jpg">
+		<center>
+					<h1><em>{adversaire}</em> vous a lancé un défi !</h1>
+					<h3>Que veux tu faire l'ami ?</h3> 
+					<a href = "./req_creerTable?compte={compte}&adversaire={adversaire}">Commencer la partie !!!!!</a>
+					<br><br>
+					<a href = "/req_salon_multi?compte={compte}">Non merci chef !!!</a>
+					<br><br>
+					<img src = "../img/gif/omg_cat.gif">		
+				<br><br><br><br><br><br><br><br>
+	            <a href = "./req_deconnexion?compte={compte}">Deconnexion</a>
+		</center>
+	</body>
+</html>
