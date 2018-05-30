@@ -3,6 +3,7 @@
 - IA
 - Peut etre un bug au niveau du valeurMain
 - completer la confirmation de mdp lors de l'inscription
+<<<<<<< HEAD
 - distribuer les cartes à des joueurs
 - affichage des cartes, du pot, du solde, joueurs sur la page modele joueur
 - finir la page modele adversaire
@@ -10,3 +11,9 @@
 - voir si on peut pas regrouper toutes les actions -> checker, miser, relancer, se coucher, suivre exemple : checkbox
 - mettre le query.table pour pouvoir le reprendre dans les JSON
 - dans req_reponse defi petit bug
+=======
+- afficher les cartes sur la page du joueur
+- distribuer les cartes à des joueurs
+- rajouter un marqueurs table dans toutes les query
+- bouton deconnexion
+>>>>>>> e0348b3e06fc209e33ac0c9f28174eb8312b1118

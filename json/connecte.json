@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 []
+=======
+[{"compte":"b","connecte":"attente","libre":true,"table":"b","adversaire":"a"},{"compte":"a","connecte":"attente","libre":true,"table":""}]
+>>>>>>> e0348b3e06fc209e33ac0c9f28174eb8312b1118

@@ -30,6 +30,7 @@ var trait = function (req, res, query) {
 		joue = "en_attente";
 	}
 
+<<<<<<< HEAD
 // 					NAHEL
 //	if (membres[i].joueurs === query.compte) {
 //		joue = true;
@@ -51,11 +52,17 @@ var trait = function (req, res, query) {
 		
 	// AFFICHAGE DE LA PAGE ADVERSAIRE
 //    page = fs.readFileSync("./html/modele_page_adversaire.html", "UTF-8");
+=======
+    page = fs.readFileSync("./html/modele_page_adversaire.html", "UTF-8");
+>>>>>>> e0348b3e06fc209e33ac0c9f28174eb8312b1118
 
     marqueurs = {};
     marqueurs.compte = query.compte;
 	marqueurs.adversaire = query.adversaire;
+<<<<<<< HEAD
 	marqueurs.table = query.table;
+=======
+>>>>>>> e0348b3e06fc209e33ac0c9f28174eb8312b1118
     page = page.supplant(marqueurs);
 
     res.writeHead(200, {'Content-Type': 'text/html'});

@@ -24,7 +24,29 @@ var trait = function (req, res, query) {
 	var melange;
 	var mains;
 	var river;
+<<<<<<< HEAD
 	var membres;
+=======
+
+/*
+
+	ON GARDE ????
+
+	partie.joueurs = [];
+	partie.enJeu = false;
+	partie.tour = 0;
+	partie.riviere = [];
+	partie.main = [];
+	partie.mise = [];
+	partie.solde = [];
+
+	contenu_partie = JSON.stringify(partie);
+	fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie,  "UTF-8");
+*/
+	// LANCEMENT PARTIE EN ATTENTE -> TRUE
+	contenu_fichier = fs.readFileSync ('./json/connecte.json' , 'utf-8');
+	connecte = JSON.parse(contenu_fichier);
+>>>>>>> e0348b3e06fc209e33ac0c9f28174eb8312b1118
 	
 	contenu_fichier = fs.readFileSync("./json/connecte.json", "UTF-8");
     membres = JSON.parse(contenu_fichier);
@@ -41,6 +63,7 @@ var trait = function (req, res, query) {
 		}
 	}
 	
+<<<<<<< HEAD
 	contenu_fichier = JSON.stringify(membres);
 	fs.writeFileSync("./json/connecte.json" , contenu_fichier , "UTF-8");
 	
@@ -48,8 +71,18 @@ var trait = function (req, res, query) {
 
 // ============================================================================
 // ============================================================================
+=======
+	contenu_fichier = JSON.stringify (connecte);
+	fs.writeFileSync ('./json/connecte.json' , contenu_fichier , 'utf-8');
+	
+	// APPEL DU MODULE
+
+	melange = require("../fonctions/function_melange_cartes.js");
+	distribution = require("../fonctions/function_distribution_cartes.js");
+>>>>>>> e0348b3e06fc209e33ac0c9f28174eb8312b1118
 
 
+<<<<<<< HEAD
 	// CODE JEU
 
 	// APPEL DES MODULES MELANGER ET LES COMBINAISONS
@@ -60,6 +93,10 @@ var trait = function (req, res, query) {
 	melange();
 
 	// ECRITURE DU JSON DE PARTIE
+=======
+	melange();
+
+>>>>>>> e0348b3e06fc209e33ac0c9f28174eb8312b1118
 	nouvellePartie = {};
 	nouvellePartie.admin = query.compte;
 
@@ -73,6 +110,7 @@ var trait = function (req, res, query) {
 
 	// CARTES DE LA RIVIERE
 	nouvellePartie.river = [];
+<<<<<<< HEAD
 
 	// CARTES EN MAIN
 	nouvellePartie.main = [];
@@ -84,17 +122,40 @@ var trait = function (req, res, query) {
 	nouvellePartie.mise[0] = 0 ;
 	nouvellePartie.mise[1] = 0 ;
 
+=======
+	
+	nouvellePartie.main = [];
+	nouvellePartie.main[0] = [];
+	nouvellePartie.main[1] = [];
+	
+	nouvellePartie.mise = [];
+	nouvellePartie.mise[0] = 0 ;
+	nouvellePartie.mise[1] = 0 ;
+//	nouvellePartie.mise[2] = 0 ;
+	
+>>>>>>> e0348b3e06fc209e33ac0c9f28174eb8312b1118
 	for (i = 0 ; i < nouvellePartie.mise[i] ; i++) {
 		nouvellePartie.solde += nouvellePartie.mise[i];
 	}
 	// SOLDE DE CHAQUE JOUEURS, SOLDE DE DEPART DE 100
 	nouvellePartie.solde = [];
+<<<<<<< HEAD
 	nouvellePartie.solde[0] = 100;
 	nouvellePartie.solde[1] = 100;
 
 	// DISTRIBUTION DES CARTES DANS LA MAIN ET DANS LA RIVIERE
 	mains = nouvellePartie.main;
 	river = nouvellePartie.river;
+=======
+	nouvellePartie.solde[0] = "44";
+	nouvellePartie.solde[1] = "33";
+	nouvellePartie.solde[2] = "2408";
+	
+	mains = nouvellePartie.main;
+	river = nouvellePartie.river;
+
+	distribution(mains, river);
+>>>>>>> e0348b3e06fc209e33ac0c9f28174eb8312b1118
 
 	distribution(mains, river);
 
@@ -102,9 +163,18 @@ var trait = function (req, res, query) {
 	contenu_partie = JSON.stringify(nouvellePartie);
 	fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie, "UTF-8");
 
+<<<<<<< HEAD
 
 	// AFFICHAGE DE LA PAGE DE JEU
 	page = fs.readFileSync("./html/modele_page_joueur.html" , "UTF-8");
+=======
+	fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie, "UTF-8");
+
+
+	// AFFICHAGE DE LA PAGE
+
+    page = fs.readFileSync("./html/modele_page_joueur.html" , "UTF-8");
+>>>>>>> e0348b3e06fc209e33ac0c9f28174eb8312b1118
 
 	marqueurs = {};
 	marqueurs.compte = query.compte;
