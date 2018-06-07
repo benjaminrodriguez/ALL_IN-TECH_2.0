@@ -3,51 +3,20 @@
     <head>
         <meta charset = "UTF-8">
 	    <title>Reponse defi</title>
-<<<<<<< HEAD
 		<link rel = "shortcut icon" href = "../img/lacoste.png" type = "image/x-icon"/> 
-=======
-		<link rel="shortcut icon" href="./img/Jeton-de-poker-en-carton-mini.jpg" type="image/x-icon" />
->>>>>>> e0348b3e06fc209e33ac0c9f28174eb8312b1118
     </head>
 
-	<body>
-		<body background = "../img/tapis_poker_vert_1920x1080.jpg">
-<<<<<<< HEAD
+	<body background = "../img/tapis_poker_vert_1920x1080.jpg">
 		<center>
-					<h1><em>{adversaire}</em> vous a lancé un défi !</h1>
-					<h3>Que veux tu faire l'ami ?</h3> 
-					<a href = "./req_creerTable?compte={compte}&adversaire={adversaire}">Commencer la partie !!!!!</a>
-					<br><br>
-					<a href = "/req_salon_multi?compte={compte}">Non merci chef !!!</a>
-					<br><br>
-					<img src = "../img/gif/omg_cat.gif">		
-				<br><br><br><br><br><br><br><br>
-	            <a href = "./req_deconnexion?compte={compte}">Deconnexion</a>
-		</center>
-=======
-	
-		<fieldset>
-			<center><strong><h1><em>{adversaire}</em> souhaite vous défier !</h1>
+			<h1><em>{adversaire}</em> vous a lancé un défi !</h1>
 			<h3>Que veux tu faire l'ami ?</h3> 
-			</strong>
-
-			<hr>
-			<form action = "/req_creerTable" method = "GET">
-				<input type = "hidden" name = "compte" value = "{compte}">
-				<input type = "hidden" name = "adversaire" value = "{adversaire}">
-				<input type = "hidden" name = "joueur" value = "actif">
-				<input type = "submit" name = "commencer_partie" value = "Oui !!! Commencer la partie !!!!!">
-			</form><br>
-
-			<form action = "/req_salon_multi" method = "GET">
-				<input type = "hidden" name = "compte" value = "{compte}">
-				<input type = "hidden" name = "adversaire" value = "{adversaire}">
-				<input type = "submit" name = "non" value = "Non merci">
-			</form>
-
-
-		</fieldset>
-
->>>>>>> e0348b3e06fc209e33ac0c9f28174eb8312b1118
+			<a href = "./req_creerTable?compte={compte}&adversaire={adversaire}">Commencer la partie !!!!!</a>
+			<br><br>
+			<a href = "/req_salon_multi?compte={compte}">Non merci chef !!!</a>
+			<br><br>
+			<img src = "../img/gif/omg_cat.gif">		
+		<br><br><br><br><br><br><br><br>
+		<a href = "./req_deconnexion?compte={compte}">Deconnexion</a>
+	</center>
 	</body>
 </html>

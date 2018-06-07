@@ -8,17 +8,21 @@
 		<meta http-equiv = "refresh" content = " 2 ; URL = ./req_attendre_tour?compte={compte}&adversaire={adversaire}">
 	</head>
 
-
-	<body>
-		<body background = "../img/tapis_poker_vert_1920x1080.jpg">
+	<body background = "../img/tapis_poker_vert_1920x1080.jpg">
 		<input type="hidden" name="compte" value="{compte}&table={table}">
 		<center>
-		<h2> Veuillez patienter votre tour và bientôt arriver</h2>
-		<br><br>
-		<h5>Pour patienter, combien penses-tu qu'il y va y avoir de carrés ?</h5>
-		<img src = "../img/gif/square.gif">
-		<br><br><br><br><br><br><br><br>
-        <a href = "./req_deconnexion?compte={compte}">Deconnexion</a>
+			<h2> Veuillez patienter votre tour và bientôt arriver</h2>
+			<br><br>
+
+			<h5>Pour patienter, combien penses-tu qu'il y va y avoir de carrés ?</h5>
+			
+			<img src = "../img/gif/square.gif">
+			<br><br><br><br>
+			
+			<a href = "./req_salon_multi?compte={compte}">Retour salon</a>		
+			
+			<br><br><br><br>
+			<a href = "./req_deconnexion?compte={compte}">Deconnexion</a>
 	</center>				
 	</body>
 </html>

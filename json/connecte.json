@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-[]
-=======
-[{"compte":"b","connecte":"attente","libre":true,"table":"b","adversaire":"a"},{"compte":"a","connecte":"attente","libre":true,"table":""}]
->>>>>>> e0348b3e06fc209e33ac0c9f28174eb8312b1118
+[{"compte":"a","connecte":"joue","libre":true,"adversaire":"z","table":"a"},{"compte":"z","connecte":"joue","libre":true,"table":"a","adversaire":"a"},{"compte":"nahel","connecte":"joue","libre":true,"table":"a","adversaire":"a"},{"compte":"kevin","connecte":"joue","libre":true,"table":"test","adversaire":"test"},{"compte":"test","connecte":"joue","libre":true,"table":"test","adversaire":"kevin"},{"compte":"oui","connecte":true,"libre":false,"table":""},{"compte":"s","connecte":"joue","libre":true,"table":"s","adversaire":"a"}]

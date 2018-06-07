@@ -1,7 +1,7 @@
-//====================================================================
-// Traitement de "req_miser"
+//=========================================================================
+// Traitement de "req_attendre_fin"
 // Auteur : ALL IN'TECH
-// Version : 28/05/2018
+// Version : 31/05/2018
 //=========================================================================
 "use strict";
 
@@ -12,8 +12,9 @@ var trait = function (req, res, query) {
 
 	var marqueurs;
 	var page;
+	var membres;
+	var contenu_fichier;
 	var i;
-	var partie;
 	var contenu_fichier;
 	var contenu_partie;
 	var nouvellePartie;
@@ -28,28 +29,30 @@ var trait = function (req, res, query) {
 	var soldesJoueur;
 	var soldesAdversaire;
 	var pot;
+	var contenuConnecte;
+	var connecte;
+	var partie;
 
-	contenu_fichier = fs.readFileSync("./json/connecte.json" , "UTF-8");
-	membres = JSON.parse (contenu_fichier);
+	contenuConnecte = fs.readFileSync("./json/connecte.json" , "UTF-8");
+	connecte = JSON.parse (contenuConnecte);
 
-	for (i = 0 ; i < membres.length ; i++) {
-		if (membres[i].compte === query.compte) {
-			partie = membres[i].table;
+	for (i = 0 ; i < connecte.length ; i++) {
+		if (connecte[i].compte === query.compte) {
+			partie = connecte[i].table;
+			console.log(partie);
 		}
 	}
-	
-	// PASSAGE DE JOUEUR ACTIF A PASSIF
+
+
 	contenu_fichier = fs.readFileSync("./tables/"+partie+".json" , "UTF-8");
 	membres = JSON.parse(contenu_fichier);
 
-	membres.tour = query.adversaire;
-
-	console.log(membres.tour);
-	// LE JOUEUR EST SUR PAGE ATTENDRE
-	//	membres.attendre = true;
-
-	contenu_fichier = JSON.stringify(membres);
-	fs.writeFileSync("./tables/"+partie+".json" , contenu_fichier, "UTF-8");
+	// ON VERIFIE SI TOUS LES JOUEURS SONT SUR PAGE ATTENDRE
+	//for (i = 0 ; i < membres.length ; i++) {
+	// SI OUI ON LES REDIRIGE VERS PAGE RESULTAT
+	//		if (membres[i].attendre === true) {
+	//			page = fs.readFileSync ("./html/modele_page_resultat.html" , "UTF-8");
+	//		} else {
 
 	// LECTURE DU JSON DE LA PARIE POUR POUVOIR PARAMETRER LES MARQUEURS
 	contenu_partie = fs.readFileSync("./tables/"+partie+".json", "UTF-8");
@@ -90,29 +93,29 @@ var trait = function (req, res, query) {
 	// MARQUEURS HTML
 	marqueurs = {};
 
-	// Marqueurs Carte Joueur
+	// MARQUEURS CARTE JOUEUR
 	marqueurs.carte2Joueurs = carte2Joueurs;
 	marqueurs.carteJoueurs = carteJoueurs;
 
-	// Marqueurs Carte de la riviere
+	// MARQUEURS CARTE DE LA RIVIERE
 	marqueurs.carte1Riviere = carte1Riviere;
 	marqueurs.carte2Riviere = carte2Riviere;
 	marqueurs.carte3Riviere = carte3Riviere;
 	marqueurs.carte4Riviere = carte4Riviere;
 	marqueurs.carte5Riviere = carte5Riviere;
 
-	//Autres marqueurs
+	//AUTRES MARQUEURS
 	marqueurs.soldesJoueur = soldesJoueur;
 	marqueurs.soldesAdversaire = soldesAdversaire;
 	marqueurs.pot = pot;
 	marqueurs.compte = query.compte;
 	marqueurs.adversaire = query.adversaire;
-	marqueurs.table = query.table;
 	page = page.supplant(marqueurs);
 
 	res.writeHead(200, {'Content-Type': 'text/html'});
 	res.write(page);
 	res.end();
+
 };
 //--------------------------------------------------------------------------
 

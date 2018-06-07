@@ -3,13 +3,26 @@
 	<head>
 		<title>Page de jeu</title>
 		<meta http-equiv= 'Content-Type' content = 'text/html; charset = UTF-8'/>
-		<link rel = "shortcut icon" href = "../img/lacoste.png" type = "image/x-icon"/> 
+		<link rel = "shortcut icon" href = "../img/lacoste.png" type = "image/x-icon"/>
+		<link rel = "stylesheet" type="text/css" href ="../css/style.css" />
 	</head>
 
-
 	<body>
+		<div id ="pageJoueur">
 		<body background = "../img/tapis_poker_vert_1920x1080.jpg">
-		
+	
+		<fieldset>
+			<legend>A vous de jouer!</legend>
+				<p>Vos cartes:<img class="cartes" src="../img/cards/{carteJoueurs}.png"> <img class="cartes" src="../img/cards/{carte2Joueurs}.png"></p>
+				<p>
+					La riviere: <img class="cartes"src="../img/cards/{carte1Riviere}.png">									<img class="cartes" src="../img/cards/{carte2Riviere}.png">									<img class="cartes" src="../img/cards/{carte3Riviere}.png">									<img class="cartes" src="../img/cards/{carte4Riviere}.png">									<img class="cartes" src="../img/cards/{carte5Riviere}.png">					</p>
+				<p>Votre soldes: {soldesJoueur}</p>
+				<p>Solde de l'adversaire: {soldesAdversaire}</p>
+				<p>Pot: {pot} </p>
+		</fieldset>
+			
+		<fieldset>
+			<legend>Vos choix:</legend>
 		<center>
 			<h2>A vous de jouer <em>{compte}</em>, que voulez vous faire ?</h2><br><br>
 			
@@ -17,32 +30,25 @@
 
 			<br><br>
 
-			<a href = "./req_miser?compte={compte}&table={table}">Miser</a>
+			<a href = "./req_miser?compte={compte}&adversaire={adversaire}">Miser</a>
 
 			<br><br>
 
-			 <a href = "./req_checker?compte={compte}&table={table}">Check</a>
+			 <a href = "./req_checker?compte={compte}&adversaire={adversaire}&table={table}">Check</a>
 
 			<br><br>
 
-			<a href = "./req_relancer?compte={compte}&table={table}">Relancer</a>
+			<a href = "./req_relancer?compte={compte}&adversaire={adversaire}table={table}">Relancer</a>
 
 			<br><br> 
 
-			<a href = "./req_suivre?compte={compte}&table={table}">Suivre</a>
+			<a href = "./req_suivre?compte={compte}&adversaire={adversaire}&table={table}">Suivre</a>
 
 			<br><br> 
 
-<<<<<<< HEAD
-			<a href = "./req_coucher?compte={compte}&table={table}">Se coucher<a>
-
-			<br><br>
-
-			<img src = "../img/gif/obama.gif">
-			<br><br><br><br><br><br><br><br>
-            <a href = "./req_deconnexion?compte={compte}">Deconnexion</a>
+			<a href = "./req_coucher?compte={compte}&adversaire={adversaire}&table={table}">Se coucher<a>
 		</center>
-=======
->>>>>>> e0348b3e06fc209e33ac0c9f28174eb8312b1118
+		</fieldset>	
+		</div>
 	</body>
 </html>

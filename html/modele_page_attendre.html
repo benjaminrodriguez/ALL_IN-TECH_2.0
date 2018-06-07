@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta http-equiv = 'Content-Type' content = 'text/html; charset = UTF-8' />
+			<title>Voici la page d'attente</title>
+			<link rel = "shortcut icon" href = "../img/lacoste.png" type = "image/x-icon"/>
+			<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+			<meta http-equiv = "refresh" content = "6; url=/req_attendre_fin?compte={compte}&adversaire={adversaire}">
+		</head>
+
+	<body background = "../img/tapis_poker_vert_1920x1080.jpg">
+		<div id="pageAttendre">
+			<center>
+				<fieldset>
+					<p>Vos cartes:<img class="cartes" src="../img/cards/{carteJoueurs}.png"> <img class="cartes" src="../img/cards/{carte2Joueurs}.png"></p>
+					<p>
+						La riviere: 
+							<img class="cartes"src="../img/cards/{carte1Riviere}.png">
+							<img class="cartes" src="../img/cards/{carte2Riviere}.png">	
+							<img class="cartes" src="../img/cards/{carte3Riviere}.png">
+							<img class="cartes" src="../img/cards/{carte4Riviere}.png">
+							<img class="cartes" src="../img/cards/{carte5Riviere}.png"></p>
+					<p>Votre solde: {soldesJoueur}</p>
+					<br>
+					<p>Solde de l'adversaire: {soldesAdversaire}</p>
+					<br>
+					<p>Pot: {pot} </p>
+				</fieldset>
+
+				<h1>Veuillez attendre que l'adversaire ai fini son tour, cela ne devrait plus être très long !</h1>
+				<br><br>
+				<img src = "../img/gif/wait.gif">
+
+			</center>
+		</div>
+	</body>
+</html>

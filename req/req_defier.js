@@ -25,14 +25,14 @@ var trait = function (req, res, query) {
 		if (membres[a].compte === query.compte) {
 			membres[a].connecte = "attente";
 			membres[a].adversaire = query.adversaire;
-			membres[a].table = query.compte;
+			membres[a].table = query.adversaire;
 		}
 	}
 	for (b = 0 ; b < membres.length ; b++) {
 		if (membres[b].compte === query.adversaire) {
 			membres[b].connecte = "attente";
 			membres[b].adversaire = query.compte;
-			membres[b].table = query.compte;
+			membres[b].table = query.adversaire;
 		}
 	}
 	
