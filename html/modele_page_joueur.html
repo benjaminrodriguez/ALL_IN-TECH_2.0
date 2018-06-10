@@ -7,48 +7,51 @@
 		<link rel = "stylesheet" type="text/css" href ="../css/style.css" />
 	</head>
 
-	<body>
-		<div id ="pageJoueur">
-		<body background = "../img/tapis_poker_vert_1920x1080.jpg">
-	
-		<fieldset>
-			<legend>A vous de jouer!</legend>
-				<p>Vos cartes:<img class="cartes" src="../img/cards/{carteJoueurs}.png"> <img class="cartes" src="../img/cards/{carte2Joueurs}.png"></p>
-				<p>
-					La riviere: <img class="cartes"src="../img/cards/{carte1Riviere}.png">									<img class="cartes" src="../img/cards/{carte2Riviere}.png">									<img class="cartes" src="../img/cards/{carte3Riviere}.png">									<img class="cartes" src="../img/cards/{carte4Riviere}.png">									<img class="cartes" src="../img/cards/{carte5Riviere}.png">					</p>
-				<p>Votre soldes: {soldesJoueur}</p>
-				<p>Solde de l'adversaire: {soldesAdversaire}</p>
-				<p>Pot: {pot} </p>
-		</fieldset>
-			
-		<fieldset>
-			<legend>Vos choix:</legend>
+	<body background = "../img/tapis_poker_vert_1920x1080.jpg">
 		<center>
-			<h2>A vous de jouer <em>{compte}</em>, que voulez vous faire ?</h2><br><br>
-			
-			<h3>Voici vos cartes</h3>
+			<div id ="pageJoueur">
+			<fieldset>
+				<legend>A vous de jouer!</legend>
+					<p>Vos cartes:<img class="cartes" src="../img/cards/{carteJoueurs}.png"> <img class="cartes" src="../img/cards/{carte2Joueurs}.png"></p>
+					<p>
+						La riviere: <img class="cartes"src="../img/cards/{carte1Riviere}.png">									<img class="cartes" src="../img/cards/{carte2Riviere}.png">									<img class="cartes" src="../img/cards/{carte3Riviere}.png">									<img class="cartes" src="../img/cards/{carte4Riviere}.png">									<img class="cartes" src="../img/cards/{carte5Riviere}.png">					</p>
+					<p>Votre soldes: {soldesJoueur}</p>
+					<p>Solde de l'adversaire: {soldesAdversaire}</p>
+					<p>La mssie de votre	 adversaire : {miseAdversaire}</p>
+					<p>Pot: {pot} </p>
+			</fieldset>
+				
+			<fieldset>
+				<legend>Vos choix:</legend>
+				<h2>A vous de jouer <em>{compte}</em>, que voulez vous faire ?</h2><br><br>
+				
+				<h3>Voici vos cartes</h3>
 
+				<br><br>
+
+				<a href="./req_diminuer_mise?compte={compte}&adversaire={adversaire}">
+				<img src="./img/moins.png">
+				</a>
+
+				<input type="text" name="mise" disabled="disabled"
+				placeholder={miseJoueur}>
+				<a href="./req_augmenter_mise?compte={compte}&adversaire={adversaire}">
+				<img src="./img/plus.png">
+				</a>
+				
+				<br>
+				
+				<a href="./req_miser?compte={compte}&adversaire={adversaire}">{choix}</a>
+				</form>
 			<br><br>
 
-			<a href = "./req_miser?compte={compte}&adversaire={adversaire}">Miser</a>
+				<a href = "./req_suivre?compte={compte}&adversaire={adversaire}&table={table}">Suivre</a>
 
-			<br><br>
+				<br><br> 
 
-			 <a href = "./req_checker?compte={compte}&adversaire={adversaire}&table={table}">Check</a>
-
-			<br><br>
-
-			<a href = "./req_relancer?compte={compte}&adversaire={adversaire}table={table}">Relancer</a>
-
-			<br><br> 
-
-			<a href = "./req_suivre?compte={compte}&adversaire={adversaire}&table={table}">Suivre</a>
-
-			<br><br> 
-
-			<a href = "./req_coucher?compte={compte}&adversaire={adversaire}&table={table}">Se coucher<a>
+				<a href = "./req_coucher?compte={compte}&adversaire={adversaire}&table={table}">Se coucher<a>
+			</fieldset>
+			</div>
 		</center>
-		</fieldset>	
-		</div>
 	</body>
 </html>

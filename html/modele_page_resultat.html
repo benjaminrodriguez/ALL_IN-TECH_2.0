@@ -14,16 +14,22 @@
 
 
 			<label> !!!!!!!!!!!!!! RESULTATS !!!!!!!!!!!!!</label>
+			<br><br>
 
-			
-			<h3>Lancez vous !</h3>
+			{resultat}	
 
-			<a href = "./req_rejouer?compte={compte}&adversaire={adversaire}&table={table}">Rejouer</a>
+			<label>AFFICHAGE DES RESULTATS</label>	
+
 			<br><br>
 
 			<img src = "../img/gif/giphy.gif">	
+			<br><br><br><br>
+			
+			<a href = "./req_salon_multi?compte={compte}">Retour au salon multijoueur</a>
+			
 			<br><br>
-			<a href = "./req_actualiser_accueil_membre?&compte={compte}&table={table}">Retour</a>
+
+			<a href = "./req_actualiser_accueil_membre?compte={compte}&table={table}">Retour</a>
 			<br><br><br><br><br><br><br><br>
             <a href = "./req_deconnexion?compte={compte}">Deconnexion</a>
 		</center>

@@ -49,7 +49,8 @@ var trait = function (req, res, query) {
 	} else if (adversaire_trouve === true) {
 		page = fs.readFileSync ("./html/modele_reponse_defi.html", "UTF-8");
 	} else {
-		page = fs.readFileSync ("./html/modele_accueil_membre.html" , "UTF-8");
+		console.log("ERREUR");
+	     page = fs.readFileSync ("./html/modele_error.html" , "UTF-8");
 	}
 
 	// CREATION DU MARQUEUR JOUEURS POUR AFFICHAGE DANS SALON MULTI

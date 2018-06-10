@@ -37,9 +37,9 @@ var trait = function (req, res, query) {
 		page = fs.readFileSync("./html/modele_attendre_reponse.html" , "UTF-8");
 	} else if (membres[a].connecte === "joue") {
 		page = fs.readFileSync("./html/modele_page_adversaire.html", "UTF-8");
-	// PASSE DIRECT ICI
 	} else {
-		page = fs.readFileSync("./html/modele_salon_multi.html", "UTF-8");
+		console.log("ERREUR");
+	    page = fs.readFileSync ("./html/modele_error.html" , "UTF-8");
 	}
 
 

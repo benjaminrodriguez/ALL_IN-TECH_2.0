@@ -23,9 +23,10 @@ var trait = function (req, res, query) {
 	for (i = 0 ; i < membres.length ; i++) {
 		if (membres[i].joueurs === query.compte && query.compte === query.table) {
 			page = fs.readFileSync ("./html/modele_page_joueur.html" , "UTF-8");
-		} else 
+		} else {
 			page = fs.readFileSync ("./html/modele_page_adversaire.html" , "UTF-8");
 		}
+	}
 
 	contenu_fichier = JSON.stringify(membres);
     fs.writeFileSync("./tables/"+query.table+".json" , contenu_fichier, 'UTF-8');
