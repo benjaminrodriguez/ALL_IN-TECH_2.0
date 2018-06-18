@@ -5,19 +5,32 @@
 		<title>Page attente</title>
 		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 		<link rel = "shortcut icon" href = "../img/lacoste.png" type = "image/x-icon"/> 
-		<meta http-equiv = "refresh" content = " 2 ; URL = ./req_attendre_tour?compte={compte}&adversaire={adversaire}">
+		<link rel = "stylesheet" type="text/css" href ="../css/style.css" />
+		<meta http-equiv = "refresh" content = " 2 ; URL = ./req_attendre_tour?compte={compte}&adversaire={adversaire}&miseJoueur={miseJoueur}&miseAdversaire={miseAdversaire}">
 	</head>
 
-	<body background = "../img/tapis_poker_vert_1920x1080.jpg">
-		<input type="hidden" name="compte" value="{compte}&table={table}">
+	<body background = "../img/tapis_poker_vert_1920x1080.jpg" id = "pageAdversaire">
 		<center>
-			<h2> Veuillez patienter votre tour và bientôt arriver</h2>
+			<h2> Veuillez patienter  <em>{compte}<em>, votre tour va bientôt arriver</h2>
 			<br><br>
 
-			<a href = "./req_salon_multi?compte={compte}">Retour salon</a>		
-			
+			<p><h3>Vos cartes:</h3><br>
+			<img class="cartes" src="../img/cards/{carteJoueurs}.png">
+			<img class="cartes" src="../img/cards/{carte2Joueurs}.png"></p>
+			<p><br>
+			<h3>La riviere :</h3><br>
+			<img class="cartes" src="../img/cards/{carte1Riviere}.png">
+			<img class="cartes" src="../img/cards/{carte2Riviere}.png">
+			<img class="cartes" src="../img/cards/{carte3Riviere}.png">
+			<img class="cartes" src="../img/cards/{carte4Riviere}.png">
+			<img class="cartes" src="../img/cards/{carte5Riviere}.png"></p><br>
+			<!--<p><h3>Votre solde : {soldeJoueur}</h3></p><br>
+			<p><h3>Solde de l'adversaire : {soldeAdversaire}</h3></p><br> -->
+			<p><h3>Pot : {pot}</h3> </p><br>
+
+			<a href = "./req_salon_multi?compte={compte}"><button>Retour salon</button></a>		
 			<br><br><br><br>
-			<a href = "./req_deconnexion?compte={compte}">Deconnexion</a>
-	</center>				
+
+		</center>				
 	</body>
 </html>

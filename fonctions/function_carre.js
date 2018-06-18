@@ -7,7 +7,7 @@
 
 // DEBUT DE LA FONCTION
 
-var function_carre = function (carte1Joueur1, carte2Joueur1, riviere, joueur, partie) {
+var function_carre = function (carte1Joueur, carte2Joueur, riviere, joueur, partie) {
 
 	// VARIABLE JSON
 	var contenu_partie;
@@ -15,38 +15,27 @@ var function_carre = function (carte1Joueur1, carte2Joueur1, riviere, joueur, pa
 	var fs = require ("fs");
 
 	// VARIABLE
-	var river1;
-	var river2;
-	var river3;
-
-	// RIVIERE
-	river1 = riviere[0].valeur;
-	river2 = riviere[1].valeur;
-	river3 = riviere[2].valeur;
+	var compteur;
+	var i;
 
 	// LECTURE JSON
 	contenu_partie = fs.readFileSync("./tables/"+partie+".json", "UTF-8");
 	membres = JSON.parse(contenu_partie);
 
+	compteur = 0;
 
-	if (carte1Joueur1 === carte2Joueur1) {
-		if (carte1Joueur1 === river1 && carte1Joueur1 === river2) {
-			membres.valeurMain[joueur] = 8;
-		} else if (carte1Joueur1 === river2 && carte1Joueur1 === river3) {
-			membres.valeurMain[joueur] = 8;
-		} else if (carte1Joueur1 === river1 && carte1Joueur1 === river3) {
-			membres.valeurMain[joueur] = 8;
+	if(carte1Joueur === carte2Joueur){
+		compteur++;
+	}
+
+	for(i = 0; i < riviere.length; i++){
+		if(carte1Joueur === riviere[i].valeur || carte2Joueur === riviere[i].valeur){
+			compteur++;
 		}
-	} else if (carte1Joueur1 !== carte2Joueur1) {
-		if (river1 === river2 && river1 === river3) {
-			// CARTE 1
-			if (carte1Joueur1 === river1) {
-				membres.valeurMain[joueur] = 8;
-				// CARTE 2
-			} else if (carte2Joueur2 === river2) {
-				membres.valeurMain[joueur] = 8;
-			}
-		}
+	}
+
+	if(compteur >= 4){
+		membres.valeurMain[joueur] = 8;
 	}
 
 	contenu_partie = JSON.stringify(membres);

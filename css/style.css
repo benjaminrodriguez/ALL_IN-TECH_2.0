@@ -1,6 +1,21 @@
 /* CSS */
 
-#pageJoueur .cartes, #pageAttendre .cartes {
-	width: 75px;
-
+#pageJoueur .cartes, #pageAttendre .cartes , #pageAdversaire .cartes , #pageResultat .cartes {
+	width: 100px;
+	
+} #pageStructure , #pageJoueur , #pageAttendre , #pageAdversaire , #pageResultat {
+	color : GhostWhite;
+	font-family: sans-serif;
+}.buttonALLIN {
+	width:150px;
+	border: 1px solid black;
+	border-radius: 15%;
+}.logo {
+	width:1500px;
+} .gif_salon_multi {
+	width:300px;
+} .gif_cat {
+	width:300px;
+} .logo_reponse_defi {
+	width:1150px;
 }

@@ -4,34 +4,37 @@
 		<meta http-equiv = 'Content-Type' content = 'text/html; charset = UTF-8' />
 		<title>Voici la page de résultat</title>
 		<link rel = "shortcut icon" href = "../img/lacoste.png" type = "image/x-icon"/> 
+	    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+		<!--<meta http-equiv = "refresh" content = " 5 ; URL = ./req_rejouer?compte={compte}&adversaire={adversaire}">-->
 	</head>
 
-	<body background = "../img/tapis_poker_vert_1920x1080.jpg">
+	<body background = "../img/tapis_poker_vert_1920x1080.jpg" id = "pageResultat">
 		<center>
 			<h1>Voici le resultat</h1>
-			
-			<br><br>
-
-
-			<label> !!!!!!!!!!!!!! RESULTATS !!!!!!!!!!!!!</label>
-			<br><br>
-
-			{resultat}	
-
-			<label>AFFICHAGE DES RESULTATS</label>	
 
 			<br><br>
 
-			<img src = "../img/gif/giphy.gif">	
-			<br><br><br><br>
-			
-			<a href = "./req_salon_multi?compte={compte}">Retour au salon multijoueur</a>
-			
-			<br><br>
+			<p><h3>Vos cartes :</h3> 
+			<img class="cartes" src="../img/cards/{carteJoueurs}.png"> 
+			<img class="cartes" src="../img/cards/{carte2Joueurs}.png"></p><br>
+			<p><h3>Cartes de l'adversaire:</h3> 
+			<img class="cartes" src="../img/cards/{carte1Adversaire}.png"> 
+			<img class="cartes" src="../img/cards/{carte2Adversaire}.png">
+			</p><br>
+			<p>
+			<h3>La riviere:</h3>
+			<img class="cartes"src="../img/cards/{carte1Riviere}.png">
+			<img class="cartes" src="../img/cards/{carte2Riviere}.png">
+			<img class="cartes" src="../img/cards/{carte3Riviere}.png">
+			<img class="cartes" src="../img/cards/{carte4Riviere}.png">
+			<img class="cartes" src="../img/cards/{carte5Riviere}.png"></p>
+			<p><h3>Pot: {pot}</h3></p>
 
-			<a href = "./req_actualiser_accueil_membre?compte={compte}&table={table}">Retour</a>
-			<br><br><br><br><br><br><br><br>
-            <a href = "./req_deconnexion?compte={compte}">Deconnexion</a>
+			<br><br>
+		<h2>{resultat}</h2>	
+			<br><br>
+			<a href = "./req_salon_multi?compte={compte}"><button>Faire une nouvelle partie</button></a>
+			<br><br>
 		</center>
 	</body>
 </html>

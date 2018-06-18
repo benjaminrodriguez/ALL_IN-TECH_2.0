@@ -1,5 +1,5 @@
 //====================================================================
-// Traitement de "req_miser"
+// Traitement de "IA_req_miser"
 // Auteur : ALL IN'TECH
 // Version : 28/05/2018
 //=========================================================================
@@ -29,31 +29,20 @@ var trait = function (req, res, query) {
 	var soldeAdversaire;
 	var choix;
 	var pot;
-	var miseJoueur;
+	var compteJoueur;
 	var miseAdversaire;
-
-	contenu_fichier = fs.readFileSync("./json/connecte.json" , "UTF-8");
-	membres = JSON.parse (contenu_fichier);
-
-	for (i = 0 ; i < membres.length ; i++) {
-		if (membres[i].compte === query.compte) {
-			partie = membres[i].table;
-		}
-	}
-
-	// PASSAGE DE JOUEUR ACTIF A PASSIF
-	contenu_fichier = fs.readFileSync("./tables/"+partie+".json" , "UTF-8");
-	membres = JSON.parse(contenu_fichier);
-
-	membres.tour = query.adversaire;
-
-	contenu_fichier = JSON.stringify(membres);
-	fs.writeFileSync("./tables/"+partie+".json" , contenu_fichier, "UTF-8");
+	var miseJoueur;
+	var miseJoueurNombre = Number(miseJoueur);
+	var miseAdversaireNombre = Number(miseAdversaire);
 
 	// LECTURE DU JSON DE LA PARIE POUR POUVOIR PARAMETRER LES MARQUEURS
-	contenu_partie = fs.readFileSync("./tables/"+partie+".json", "UTF-8");
-	nouvellePartie = JSON.parse(contenu_partie);
+	contenu_partie = fs.readFileSync("./tables/" + query.compte +"_VS_IA.json" , "UTF-8");
+	membres = JSON.parse(contenu_partie);
 
+
+
+	nouvellePartie.pot = Number(nouvellePartie.pot);
+	console.log(nouvellePartie.pot);
 	// JOUEURS 1
 	if(query.compte === nouvellePartie.joueurs[0]){
 		carteJoueurs = nouvellePartie.main[0][0].couleur + nouvellePartie.main[0][0].valeur;
@@ -62,40 +51,33 @@ var trait = function (req, res, query) {
 		miseAdversaire = nouvellePartie.mise[1];
 		soldeJoueur = nouvellePartie.solde[0];
 		soldeAdversaire = nouvellePartie.solde[1];
-				nouvellePartie.attendre[0] = true;
+		nouvellePartie.attendre[0] = true;
 	}
 
 
-	// JOUEUR 2
-	
-	if(query.compte === nouvellePartie.joueurs[1]){
-		carteJoueurs = nouvellePartie.main[1][0].couleur + nouvellePartie.main[1][0].valeur;
-		carte2Joueurs = nouvellePartie.main[1][1].couleur + nouvellePartie.main[1][1].valeur;
-		miseJoueur = nouvellePartie.mise[1];
-		miseAdversaire = nouvellePartie.mise[0];
-		soldeJoueur = nouvellePartie.solde[1];
-		soldeAdversaire = nouvellePartie.solde[0];
-				nouvellePartie.attendre[1] = true;
-	}
 
+
+	miseJoueurNombre = Number(query.miseJoueur);
 	pot = nouvellePartie.pot;
+	nouvellePartie.pot += miseJoueurNombre;
+	soldeJoueur -= miseJoueurNombre;
 
-//FONCTIONNEMENT MISE 
-
+	//FONCTIONNEMENT MISE 
 	carte1Riviere = nouvellePartie.river[0].couleur + nouvellePartie.river[0].valeur; 
 	carte2Riviere = nouvellePartie.river[1].couleur + nouvellePartie.river[1].valeur;
 	carte3Riviere = nouvellePartie.river[2].couleur + nouvellePartie.river[2].valeur; 
 	carte4Riviere = nouvellePartie.river[3].couleur + nouvellePartie.river[3].valeur; 
 	carte5Riviere = nouvellePartie.river[4].couleur + nouvellePartie.river[4].valeur; 
+	console.log(nouvellePartie.pot);
 
 	// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
-	contenu_partie = JSON.stringify(nouvellePartie);
-	fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
+	contenu_partie = JSON.stringify(membres);
+	fs.writeFileSync("./tables/" + query.compte +"_VS_IA.json", contenu_partie, "UTF-8");
 
 
 	// AFFICHAGE DE LA PAGE RESULTAT
 	page = fs.readFileSync("./html/modele_page_attendre.html", "UTF-8");
-
+	console.log(miseJoueur);
 	// MARQUEURS HTML
 	marqueurs = {};
 
@@ -116,8 +98,8 @@ var trait = function (req, res, query) {
 	marqueurs.pot = pot;
 	marqueurs.compte = query.compte;
 	marqueurs.adversaire = query.adversaire;
-	marqueurs.miseJoueur = miseJoueur;
-	marqueurs.miseAdversaire = miseAdversaire;
+	marqueurs.miseJoueur = miseJoueurNombre;
+	marqueurs.miseAdversaire = miseAdversaireNombre;
 	marqueurs.choix = choix;
 	//	marqueurs.table = query.table;
 	page = page.supplant(marqueurs);

@@ -1,8 +1,35 @@
+modifs faites :
+
+- Changer couleur connexion (noir sur vert = illisible)
+- enlever bouton suivre (juste miser)
+- mettre balise slider ou type number au lieu de + et –
+- mettre bouton dans les href à la place de liens bleus
+- salon multi : mettre qu’il n’y a personne quand aucun autre connecté
+- afficher cartes, soldes joueurs et adversaire … dans page attente et dans req_reponse_defi
+- affichage {compte} dans créer compte
+- retourner dans salon quand on refuse un défi (créer requête refuser défi)
+- mettre en <h2> "Vos cartes" "Pot" "Riviere" ....
+- Pot et Soldes qui ne change pas quand on miser
+
+
+modifs principales à faire :
+
+- finir flushRoyale et couleur
+- quand on se couche l'autre joueur gagne
+- mettre les ecritures du ppt en blanc
+- finir rejouer
+- les phases
+- mettre des jetons de poker
+- design table de poker sur page_joueur
+- utiliser le dos des cartes qqpart
+- modele page attendre le pot ne se change pas
+modifs secondaire à faire :
+
+- Couper schéma de nav en 2 parties
+- faire une fiche avec les combinaisons possibles pour la présentation
 - IA
 - completer la confirmation de mdp lors de l'inscription
-- finir la page modele adversaire avec un truc pour attendre (petit jeu)
-- req miser : boutons + et - pour augmenter ou diminuer la mise (nahel)
 - il y aura un pb avec req_rejouer
-- finir les fonctions (quinte, main haute et royal )
-- bug d'affichage égalité sur modele_page_resultat alors qu'il y a un gagnant
-- Pot et Soldes qui ne change pas
+- mode visiteur
+- Rediriger le membre qui est refusé dans le salon multi et non dans l'accueil
+- Un membres est affiché alors qu'il est déconnecté

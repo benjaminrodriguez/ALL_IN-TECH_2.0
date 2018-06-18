@@ -1,8 +1,8 @@
-//=============================================================================
-// Traitement de "req_creerTable"
-// Auteur : ALL IN'TECH 
-// Version : 17/06/18
-//==============================================================================
+//=========================================================================
+// Traitement de "req_creerTable_IA"
+// Auteur : ALL'INTECH 
+// Version : 27/05/18
+//=========================================================================
 "use strict";
 
 var fs = require("fs");
@@ -17,7 +17,7 @@ var trait = function (req, res, query) {
 	var contenu_fichier;
 	var connecte;
 	var i;
-	var a; 
+	var a;
 	var b;
 	var nouvellePartie;
 	var distribution;
@@ -40,6 +40,8 @@ var trait = function (req, res, query) {
 	var choix;
 	var attendre;
 	var pot;
+	var joueurs;
+	var contenuPartie;
 
 	// VARIABLES DES COMBINAISONS
 	var x;
@@ -56,31 +58,22 @@ var trait = function (req, res, query) {
 	var doublePaire = require("../fonctions/function_double_paire.js");
 	var brelan = require("../fonctions/function_brelan.js");
 	var quinte = require("../fonctions/function_quinte.js");
-//	var couleur = require("../fonctions/function_couleur.js");
+	var couleur = require("../fonctions/function_couleur.js");
 	var full = require("../fonctions/function_full.js");
 	var carre = require("../fonctions/function_carre.js");
 	var quinteFlush = require("../fonctions/function_quinte_flush.js");
 	var quinteFlushRoyale = require("../fonctions/function_quinte_flush_royale.js");
 
-	// LECTURE DU JSON DES MEMBRES
-	contenu_fichier = fs.readFileSync("./json/connecte.json", "UTF-8");
-	membres = JSON.parse(contenu_fichier);
+	// CREATION DU JSON PARTIE IA
+	joueurs = {};
+	joueurs.pseudo = query.compte;
 
-	// ON DONNE LA DISPONIBILITE DE CHAQUE JOUEURS
-	for (a = 0 ; a < membres.length ; a++) {
-		if (membres[a].compte === query.compte) {
-			membres[a].connecte = "joue";
-		}
-	}
-	for (b = 0 ; b < membres.length ; b++) {
-		if (membres[b].compte === query.adversaire) {
-			membres[b].connecte = "joue";
-		}
-	}
+	contenuPartie = JSON.stringify(joueurs);
+	fs.writeFileSync("./tables/" + query.compte +"_VS_IA.json", contenuPartie, "UTF-8");
 
-	// LANCEMENT DU TOUR
-	contenu_fichier = JSON.stringify(membres);
-	fs.writeFileSync("./json/connecte.json" , contenu_fichier , "UTF-8");
+	// LECTURE DU JSON PARTIE
+	contenu_partie = fs.readFileSync("./tables/" + query.compte +"_VS_IA.json" , "UTF-8");
+	membres = JSON.parse(contenu_partie);
 
 	// CODE JEU
 
@@ -98,7 +91,7 @@ var trait = function (req, res, query) {
 	// JOUEURS DE LA PARTIE
 	nouvellePartie.joueurs = [];
 	nouvellePartie.joueurs[0] = query.compte;
-	nouvellePartie.joueurs[1] = query.adversaire;
+	nouvellePartie.joueurs[1] = "IA";
 
 	// TOUR DE JEU
 	nouvellePartie.tour = query.compte;
@@ -113,11 +106,8 @@ var trait = function (req, res, query) {
 
 	// MISE DE CHAQUE JOUERS
 	nouvellePartie.mise = [];
-	nouvellePartie.mise[0] = 0;
-	nouvellePartie.mise[1] = 0;
-
-	//PHASE
-	nouvellePartie.phase = 0;
+	nouvellePartie.mise[0] = 0 ;
+	nouvellePartie.mise[1] = 0 ;
 
 	// POT
 	//nouvellePartie.pot = Number(nouvellePartie.pot);
@@ -173,12 +163,18 @@ var trait = function (req, res, query) {
 
 	pot = nouvellePartie.pot;
 
+	if (pot === 0) {
+		choix = "miser";
+	} else {
+		choix = "relancer";
+	}
 
-	carte1Riviere = nouvellePartie.river[0].couleur + nouvellePartie.river[0].valeur; 
-	carte2Riviere = nouvellePartie.river[1].couleur + nouvellePartie.river[1].valeur; 
-	carte3Riviere = nouvellePartie.river[2].couleur + nouvellePartie.river[2].valeur; 
-	carte4Riviere = nouvellePartie.river[3].couleur + nouvellePartie.river[3].valeur; 
-	carte5Riviere = nouvellePartie.river[4].couleur + nouvellePartie.river[4].valeur; 
+
+	carte1Riviere = nouvellePartie.river[0].couleur + nouvellePartie.river[0].valeur;
+	carte2Riviere = nouvellePartie.river[1].couleur + nouvellePartie.river[1].valeur;
+	carte3Riviere = nouvellePartie.river[2].couleur + nouvellePartie.river[2].valeur;
+	carte4Riviere = nouvellePartie.river[3].couleur + nouvellePartie.river[3].valeur;
+	carte5Riviere = nouvellePartie.river[4].couleur + nouvellePartie.river[4].valeur;
 
 	// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
 	contenu_partie = JSON.stringify(nouvellePartie);
@@ -204,13 +200,17 @@ var trait = function (req, res, query) {
 		doublePaire(carte1Joueur, carte2Joueur, riviere, x, partie);
 		brelan(carte1Joueur, carte2Joueur, riviere, x, partie);
 		quinte(carte1Joueur, carte2Joueur, riviere, x, partie);
-//		couleur(couleur1Joueur, couleur2Joueur, riviere, x, partie);
+		//couleur(couleur1Joueur, couleur2Joueur, riviere, x, partie);
 		full(carte1Joueur, carte2Joueur, riviere, x, partie);
 		carre(carte1Joueur, carte2Joueur, riviere, x, partie);
 		quinteFlush(carte1Joueur, carte2Joueur, riviere, x, partie);
 		//quinteFlushRoyale(carte1Joueur, carte2Joueur, riviere, x, partie);
 
 	}
+	
+	contenu_partie = JSON.stringify(membres);
+	fs.writeFileSync("./tables/" + query.compte +"_VS_IA.json", contenu_partie, "UTF-8");
+
 
 	// AFFICHAGE DE LA PAGE DE JEU
 	page = fs.readFileSync("./html/modele_page_joueur.html" , "UTF-8");
@@ -223,11 +223,11 @@ var trait = function (req, res, query) {
 	marqueurs.carteJoueurs = carteJoueurs;
 
 	// MARQUEURS CARTE DE LA RIVIERE
-	marqueurs.carte1Riviere = "";// carte1Riviere;
-	marqueurs.carte2Riviere = "";//carte2Riviere;
-	marqueurs.carte3Riviere = "";//carte3Riviere;
-	marqueurs.carte4Riviere = "";//carte4Riviere;
-	marqueurs.carte5Riviere = "";//carte5Riviere;
+	marqueurs.carte1Riviere = carte1Riviere;
+	marqueurs.carte2Riviere = carte2Riviere;
+	marqueurs.carte3Riviere = carte3Riviere;
+	marqueurs.carte4Riviere = carte4Riviere;
+	marqueurs.carte5Riviere = carte5Riviere;
 
 	marqueurs.soldeJoueur = soldeJoueur;
 	marqueurs.soldeAdversaire = soldeAdversaire;
@@ -245,5 +245,3 @@ var trait = function (req, res, query) {
 	res.end();
 };
 //--------------------------------------------------------------------------
-
-module.exports = trait;

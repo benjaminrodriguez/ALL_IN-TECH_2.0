@@ -1,39 +1,35 @@
 <!DOCTYPE html>
-
 <html>
 	<head>
 		<title>Accueil membre</title>
 		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 		<link rel = "shortcut icon" href = "../img/lacoste.png" type = "image/x-icon"/> 
+	    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+
 	</head>
 
-	<body background = "../img/tapis_poker_vert_1920x1080.jpg">
-		<center><img src = "./img/logo/logo-final-584-289.png"></center>
-		<center><h2>Bienvenue sur la page d'accueil membre !</h2></center>
+	<body background = "../img/tapis_poker_vert_1920x1080.jpg" id = "pageStructure">
 		<center>
-		<h2>Bonjour <em>{compte}</em></h2>
+			<img src = "./img/logo_final_transparent.png" class="logo"><br>
+			<h2>Bonjour <em>{compte}</em> et bienvenue sur la page d'accueil membres !</h2><br>
+			</p>
+			<fieldset><br>
+				<h2>Rejoindre le salon multijoueur</h2><br>
 
-		</p>
-		<a href = "./req_actualiser_accueil_membre?compte={compte}">Actualiser</a>
-		<fieldset>
-			
-			<h2>Rejoindre le salon multijoueur</h2>
-
-			<a href="./req_salon_multi?compte={compte}">Salon multijoueur</a>
-		
-			<hr>
-
-			<h2>PARTIE LOCAL VS IA</h2>
-			<a href="./req_creerTable_IA?compte={compte}">VS IA</a><br>
-			<label> A VENIR !!!!</label>		
-			<hr>
-
-			<h2>Partie accessibles visiteur</h2>
-			<label>A VENIR !!!!!</label>
-			<br><br>
-		</fieldset>
-			<br><br>
-			<a href = "./req_deconnexion?compte={compte}">Deconnexion</a>
+				<a href="./req_salon_multi?compte={compte}"><button>Salon multijoueur</button></a><br>
+				<!--
+				<hr><br>
+				<h2>PARTIE LOCAL VS IA</h2>
+				<a href="./req_creerTable_IA?compte={compte}"><button>Partie locale</button></a><br>
+				<br>
+				<label> A VENIR !!!!</label>		
+				<hr><br>
+				<h2>Partie accessibles visiteur</h2>
+				<br><label>A VENIR !!!!!</label>
+				<br><br>-->
+			</fieldset>
+				<br><br>
+				<a href="./req_deconnexion?compte={compte}"><button name="deconnexion">Déconnexion</button></a>
 		</center>
 	</body>
 </html>

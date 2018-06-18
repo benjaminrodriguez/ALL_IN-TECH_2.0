@@ -25,10 +25,7 @@ var req_attendre_tour = require ("./req/req_attendre_tour.js");
 var req_creerTable = require ("./req/req_creerTable.js");
 var req_creerTable = require ("./req/req_creerTable.js");
 var req_miser = require ("./req/req_miser.js");	
-var req_checker = require ("./req/req_checker.js"); 
-var req_suivre = require ("./req/req_suivre.js"); 
 var req_coucher = require ("./req/req_coucher.js"); 
-var req_creerTable_IA = require ("./req/req_creerTable_IA.js");
 var req_salon_multi = require ("./req/req_salon_multi.js");
 var req_reponse_defi = require ("./req/req_reponse_defi.js");
 var req_reponse_hote = require ("./req/req_reponse_hote.js");
@@ -36,8 +33,7 @@ var req_deconnexion = require ("./req/req_deconnexion.js");
 var req_defier = require ("./req/req_defier.js");
 var req_rejouer = require ("./req/req_rejouer.js");
 var req_attendre_fin = require ("./req/req_attendre_fin.js");
-var req_augmenter_mise = require ("./req/req_augmenter_mise.js");
-var req_diminuer_mise = require ("./req/req_diminuer_mise.js");
+var req_refuser_defi = require ("./req/req_refuser_defi.js");
 
 var req_erreur = require("./req/req_erreur.js");
 
@@ -89,17 +85,8 @@ var traite_requete = function (req, res) {
 			case '/req_miser':
 				req_miser (req, res, query);
 				break;
-			case '/req_checker':
-				req_checker (req, res, query);
-				break;
-			case '/req_suivre':
-				req_suivre (req, res, query);
-				break;
 			case '/req_coucher':
 				req_coucher (req, res, query);
-				break;
-			case '/req_creerTable_IA':
-				req_creerTable_IA (req, res, query);
 				break;
 			case '/req_salon_multi':
 				req_salon_multi (req, res, query);
@@ -122,13 +109,9 @@ var traite_requete = function (req, res) {
 			case '/req_attendre_fin':
 				req_attendre_fin (req, res, query);
 				break;
-			case '/req_augmenter_mise':
-				req_augmenter_mise (req, res, query);
+			case '/req_refuser_defi':
+				req_refuser_defi (req, res, query);
 				break;
-			case '/req_diminuer_mise':
-            	req_diminuer_mise (req, res, query);
-				break;
-
 
 			default:
 

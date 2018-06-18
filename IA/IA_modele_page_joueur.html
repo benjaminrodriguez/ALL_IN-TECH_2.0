@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Page de jeu</title>
+		<title>Page de jeu IA</title>
 		<meta http-equiv= 'Content-Type' content = 'text/html; charset = UTF-8'/>
 		<link rel = "shortcut icon" href = "../img/lacoste.png" type = "image/x-icon"/>
 		<link rel = "stylesheet" type="text/css" href ="../css/style.css" />
@@ -14,13 +14,14 @@
 				<img class="cartes" src="../img/cards/{carteJoueurs}.png">
 				<img class="cartes" src="../img/cards/{carte2Joueurs}.png"></p>
 				<p><h3>La riviere:</h3>
-					<img class="cartes" src="../img/cards/{carte1Riviere}.png">
+					<img class="cartes"src="../img/cards/{carte1Riviere}.png">
 					<img class="cartes" src="../img/cards/{carte2Riviere}.png">
 					<img class="cartes" src="../img/cards/{carte3Riviere}.png">
 					<img class="cartes" src="../img/cards/{carte4Riviere}.png">
 					<img class="cartes" src="../img/cards/{carte5Riviere}.png"></p><br>
-			<!--	<p><h3>Votre solde: {soldeJoueur}</h3></p><br>
-				<p><h3>Solde de l'adversaire: {soldeAdversaire}</h3></p><br> -->
+				<p><h3>Votre solde: {soldeJoueur}</h3></p><br>
+				<p><h3>Solde de l'adversaire: {soldeAdversaire}</h3></p><br>
+				<p><h3>La mise de votre	 adversaire : {miseAdversaire}</h3><br></p>
 				<p><h3>Pot: {pot}</h3></p><br>
 			
 				<h2>A vous de jouer <em>{compte}</em>, que voulez vous faire ?</h2><br><br>
@@ -30,16 +31,14 @@
 		<form action="./req_miser" method="GET">
 			<input type="hidden" name="compte" value={compte}>
 			<input type="hidden" name="adversaire" value={adversaire}>
-			<input type="number" name="miseJoueur" step="50" min="0" max={soldeJoueur} value={miseJoueur}>
-			<input type="hidden" name="pot" value={pot}>
+			<input type="number" name="miseJoueur" step="50" min={miseAdversaire} max={soldeJoueur} placeholder={miseJoueur} value={miseJoueur}>
 			<input type="submit" value="miser">
 		</form>
 		<br><br>
 		  <form action="./req_miser" method="GET">
 		  	<input type="hidden" name="compte" value={compte}>
 		  	<input type="hidden" name="adversaire" value={adversaire}>
-		  	<input type="hidden" name="mise" value={miseJoueur}>
-		  	<input type="hidden" name="miseAdversaire" value={miseAdversaire}>
+		  	<input type="hidden" name="mise" value={soldeJoueur}>
 		  	<a href=""><img src = "./img/allin.png" class="buttonALLIN"></a>
 		  </form>
 			<br><br>

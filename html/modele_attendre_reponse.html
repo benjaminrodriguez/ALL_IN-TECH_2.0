@@ -4,10 +4,11 @@
 		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 		<title>Voici la page d'attente</title>
 		<link rel = "shortcut icon" href = "../img/lacoste.png" type = "image/x-icon"/> 
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
 		<meta http-equiv = "refresh" content = "4; url=/req_reponse_defi?compte={compte}&adversaire={adversaire}&table={compte}">
 	</head>
 
-	<body background = "../img/tapis_poker_vert_1920x1080.jpg">
+    <body background = "./img/tapis_poker_vert_1920x1080.jpg" id = "pageStructure">
 		<center>
 			<h2>En attente de <em>{adversaire}</em>, que vous avez défié</h2>
 			<br>
@@ -15,12 +16,11 @@
 			<br><br>
 			<br>
 			<img src = "../img/gif/giphy2.gif">
-			<br><br>
-			<a href = "./req_actualiser_accueil_membre?&compte={compte}">Retour</a>
-			 <br><br><br><br><br><br><br><br>
-			 <a href = "./req_deconnexion?compte={compte}">Deconnexion</a>
+			<br><br><br>
+			<a href = "./req_actualiser_accueil_membre?&compte={compte}"><button>Retour</button></a><br>
+			 <br><br>
+			 <a href = "./req_deconnexion?compte={compte}"><button>Deconnexion</button></a><p>
+			 <img src = "./img/logo_final_transparent.png" class="logo_reponse_defi">
 		</center>
 	</body>
 </html>
-
-

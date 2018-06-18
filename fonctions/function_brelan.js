@@ -15,46 +15,29 @@ var function_brelan = function (carte1Joueur, carte2Joueur, riviere, joueur, par
 	var fs = require ("fs");
 
 	// VARIABLE 
-	var river1;
-	var river2;
-	var river3;
-
-	// RIVIERE
-	river1 = riviere[0].valeur;
-	river2 = riviere[1].valeur;
-	river3 = riviere[2].valeur;
+	var i;
+	var compteur;
 
 	// LECTURE JSON
 	contenu_partie = fs.readFileSync("./tables/"+partie+".json", "UTF-8");
 	membres = JSON.parse(contenu_partie);
 
+	compteur = 0;
 
-	if (carte1Joueur === carte2Joueur) {
-		if (carte1Joueur === river1 || carte1Joueur === river2 || carte1Joueur === river3) {
-			membres.valeurMain[joueur] = 4;
-		}
-	} else if (carte1Joueur !== carte2Joueur) { 
-
-		// CARTE 1
-
-		if (carte1Joueur === river1 && carte1Joueur === river2) {
-			membres.valeurMain[joueur] = 4;
-		} else if (carte1Joueur === river1 && carte1Joueur === river3) {
-			membres.valeurMain[joueur] = 4;
-		} else if (carte1Joueur === river2 && carte1Joueur === river3) {
-			membres.valeurMain[joueur] = 4;
-
-			// CARTE 2
-
-		} else if (carte2Joueur === river1 && carte2Joueur === river2) {
-			membres.valeurMain[joueur] = 4;
-		} else if (carte2Joueur === river1 && carte2Joueur === river3) {
-			membres.valeurMain[joueur] = 4;
-		} else if (carte2Joueur === river2 && carte2Joueur === river3) {
-			membres.valeurMain[joueur] = 4;
-		}
-
+	if(carte1Joueur === carte2Joueur){
+		compteur = 2;
 	}
+
+	for( i = 0; i < riviere.length; i++){
+		if(carte1Joueur === riviere[i].valeur || carte2Joueur === riviere[i].valeur){
+			compteur++;
+		}
+	}
+
+	if(compteur >= 3){
+		membres.valeurMain[joueur] = 4;
+	}
+
 	contenu_partie = JSON.stringify(membres);
 	fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
 

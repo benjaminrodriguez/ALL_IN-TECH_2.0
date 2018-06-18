@@ -1,4 +1,4 @@
-"use strcit";
+"use strict";
 
 var fs = require ("fs");
 
@@ -13,4 +13,4 @@ cartes = JSON.parses(contenu);
 
 var tri_cartes = function (cartes) {
 	
-}
+};

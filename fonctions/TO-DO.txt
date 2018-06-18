@@ -1,8 +1,0 @@
-- function_carte_haute.js
-- function_egalite.js -> repartition du pot si plusieurs valeurMain de même valeur
-- function_quinte.js -> comment voir si des cartes se suivent ? 
-- function_full.js -> mettre dans la fonction le brelan + la paire
-- function_couleur.js -> voir avec le JSON carte.json
-- function_quinte_flush.js -> à faire
-- function_quinte_flush_royale.js -> suite de cartes + couleurs
-- function_json_read_write.js -> a faire
