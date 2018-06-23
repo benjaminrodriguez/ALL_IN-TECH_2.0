@@ -10,26 +10,41 @@ modifs faites :
 - retourner dans salon quand on refuse un défi (créer requête refuser défi)
 - mettre en <h2> "Vos cartes" "Pot" "Riviere" ....
 - Pot et Soldes qui ne change pas quand on miser
-
+- Rediriger le membre qui est refusé dans le salon multi et non dans l'accueil
+- les phases
+- quand on se couche l'autre joueur gagne
+- modifier le pot et la mise dans req-miser
+- modele page attendre le pot ne se change pas
+- regle du jeu
 
 modifs principales à faire :
 
-- finir flushRoyale et couleur
-- quand on se couche l'autre joueur gagne
-- mettre les ecritures du ppt en blanc
-- finir rejouer
-- les phases
-- mettre des jetons de poker
-- design table de poker sur page_joueur
-- utiliser le dos des cartes qqpart
-- modele page attendre le pot ne se change pas
+	BENJAMIN
+
+- finir IA
+- mode visiteur
+- ajouter le code dans le ppt
+	
+	KEVIN
+
+- finir css
+- bug d'affichage des cartes
+- table sur page adversaire
+- completer schema de nav
+	
+	NAHEL
+
+- ALLIN
+- version demo
+- revoir les codes que l'on presente
+
 modifs secondaire à faire :
 
-- Couper schéma de nav en 2 parties
+- mettre des jetons de poker et design table de poker sur page_joueur
+- finir rejouer
+- finir flushRoyale et couleur
+- utiliser le dos des cartes qqpart
 - faire une fiche avec les combinaisons possibles pour la présentation
 - IA
 - completer la confirmation de mdp lors de l'inscription
 - il y aura un pb avec req_rejouer
-- mode visiteur
-- Rediriger le membre qui est refusé dans le salon multi et non dans l'accueil
-- Un membres est affiché alors qu'il est déconnecté

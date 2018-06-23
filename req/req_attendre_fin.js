@@ -39,7 +39,7 @@ var trait = function (req, res, query) {
 
 	contenu_fichier = fs.readFileSync("./json/connecte.json" , "UTF-8");
 	membres = JSON.parse (contenu_fichier);
-	
+
 
 	for (i = 0 ; i < membres.length ; i++) {
 		if (membres[i].compte === query.compte) {
@@ -88,19 +88,19 @@ var trait = function (req, res, query) {
 	pot = nouvellePartie.mise[0] + nouvellePartie.mise[1];
 	console.log(pot+"pot3");
 
+	carte1Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>";
+	carte2Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[1].couleur+nouvellePartie.river[1].valeur+".png'>";
+	carte3Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[2].couleur+nouvellePartie.river[2].valeur+".png'>";
+	carte4Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[3].couleur+nouvellePartie.river[3].valeur+".png'>";
+	carte5Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[4].couleur+nouvellePartie.river[4].valeur+".png'>";
 
-	carte1Riviere = nouvellePartie.river[0].couleur + nouvellePartie.river[0].valeur; 
-	carte2Riviere = nouvellePartie.river[1].couleur + nouvellePartie.river[1].valeur; 
-	carte3Riviere = nouvellePartie.river[2].couleur + nouvellePartie.river[2].valeur;
-	carte4Riviere = nouvellePartie.river[3].couleur + nouvellePartie.river[3].valeur;
-	carte5Riviere = nouvellePartie.river[4].couleur + nouvellePartie.river[4].valeur; 
 
 	// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
-//	contenu_partie = JSON.stringify(nouvellePartie);
-//	fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
+	//	contenu_partie = JSON.stringify(nouvellePartie);
+	//	fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
 
-	contenu_partie = fs.readFileSync("./tables/"+partie+".json" , "UTF-8");
-	nouvellePartie = JSON.parse(contenu_partie);
+//	contenu_partie = fs.readFileSync("./tables/"+partie+".json" , "UTF-8");
+//	nouvellePartie = JSON.parse(contenu_partie);
 
 	// ON VERIFIE SI TOUS LES JOUEURS SONT SUR PAGE ATTENDRE
 	// SI OUI ON LES REDIRIGE VERS PAGE RESULTAT

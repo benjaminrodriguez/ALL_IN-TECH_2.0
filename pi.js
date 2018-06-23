@@ -1,7 +1,7 @@
 //=========================================================================
 // Site WEB  PI ALL IN'TECH
 // Auteur : ALL IN'TECH
-// Version : 27/05/2018
+// Version : 22/06/2018
 //=========================================================================
 "use strict";
 
@@ -34,6 +34,10 @@ var req_defier = require ("./req/req_defier.js");
 var req_rejouer = require ("./req/req_rejouer.js");
 var req_attendre_fin = require ("./req/req_attendre_fin.js");
 var req_refuser_defi = require ("./req/req_refuser_defi.js");
+var req_regles = require ("./req/req_regles.js");
+var req_salon_visiteurs = require ("./req/req_salon_visiteurs.js");
+//var req_creer_table_IA = require ("./IA/req_creer_table_IA.js");
+var req_allin = require ("./req/req_allin.js");
 
 var req_erreur = require("./req/req_erreur.js");
 
@@ -112,6 +116,19 @@ var traite_requete = function (req, res) {
 			case '/req_refuser_defi':
 				req_refuser_defi (req, res, query);
 				break;
+			case '/req_regles':
+				req_regles (req, res, query);
+				break;
+			case '/req_salon_visiteurs':
+				req_salon_visiteurs (req, res, query);
+				break;
+			//case '/req_creer_table_IA':
+			//	req_creer_table_IA (req, res, query);
+			//	break;
+			case '/req_allin':
+				req_allin (req, res, query);
+				break;
+		
 
 			default:
 

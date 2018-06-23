@@ -8,22 +8,23 @@
 	</head>
 
 	<body background = "../img/tapis_poker_vert_1920x1080.jpg" id = "pageStructure">
-		<center><h1>Formulaire de création d'un compte ALL IN'TECH</h1></center>
-
-		<center><img src = "./img/logo/logo-final-584-289.png"></center>
 		<center>
-		{erreur}
-		<p/>
+			<h1>Formulaire de création d'un compte ALL IN'TECH</h1>
 
-		<form action="/req_inscrire" method="GET">
-			<label>Pseudo : </label> <br> <input type="text" name="compte" value = "">
-			<br><br>
-			<label>Mot de passe : </label> <br> <input type="password" name = "mdp" value="">
-			<br><br>
-			<label>Confirmation : </label> <br> <input type = "password" name = confirmation value = "">
-			<br><br>
-			<button name="action" value="creer">Créer compte</button>
-		</form>
+			<img src = "./img/logo_final_transparent.png" class="logo_accueil">
+			{erreur}
+			<p/>
+
+			<form action="/req_inscrire" method="GET">
+				<label>Pseudo : </label> <br> <input type="text" name="compte" value = "">
+				<br><br>
+				<label>Mot de passe : </label> <br> <input type="password" name = "mdp" value="">
+			<!--	<br><br>
+				<label>Confirmation : </label> <br> <input type = "password" name = confirmation value = "">
+				-->
+				<br><br>
+				<button name="action" value="creer">Créer compte</button>
+			</form>
 		</center>
 	</body>
 </html>

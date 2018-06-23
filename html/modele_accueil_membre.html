@@ -10,23 +10,28 @@
 
 	<body background = "../img/tapis_poker_vert_1920x1080.jpg" id = "pageStructure">
 		<center>
-			<img src = "./img/logo_final_transparent.png" class="logo"><br>
+			<img src = "./img/logo_final_transparent.png" class="logo_accueil_membres"><br>
 			<h2>Bonjour <em>{compte}</em> et bienvenue sur la page d'accueil membres !</h2><br>
 			</p>
 			<fieldset><br>
-				<h2>Rejoindre le salon multijoueur</h2><br>
+				<h2>Apprendre à jouer au Texas Hold'em Poker</h2><br>
+				<a href="./req_regles?compte={compte}"><button>Règles du jeu</button></a><br><br>
+			<hr>	
+				<h2>Rejoindre le salon multijoueurs</h2><br>
 
-				<a href="./req_salon_multi?compte={compte}"><button>Salon multijoueur</button></a><br>
-				<!--
+				<a href="./req_salon_multi?compte={compte}"><button>Salon multijoueurs</button></a><br>
+			<!--	
 				<hr><br>
-				<h2>PARTIE LOCAL VS IA</h2>
-				<a href="./req_creerTable_IA?compte={compte}"><button>Partie locale</button></a><br>
+				<h2>Partie conte M. ALL IN'TECH</h2>
+				<a href="./req_creer_table_IA?compte={compte}"><button>Lancer la partie</button></a><br>
+			-->	
+			<!--
 				<br>
-				<label> A VENIR !!!!</label>		
 				<hr><br>
-				<h2>Partie accessibles visiteur</h2>
-				<br><label>A VENIR !!!!!</label>
-				<br><br>-->
+				<h2>Rejoindre le salon visiteurs</h2>
+				<a href="./req_salon_multi?compte={compte}"><button>Salon visiteurs</button></a>
+				-->
+				<br><br>
 			</fieldset>
 				<br><br>
 				<a href="./req_deconnexion?compte={compte}"><button name="deconnexion">Déconnexion</button></a>

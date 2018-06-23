@@ -6,7 +6,7 @@
 		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 		<link rel = "shortcut icon" href = "../img/lacoste.png" type = "image/x-icon"/> 
 		<link rel = "stylesheet" type="text/css" href ="../css/style.css" />
-		<meta http-equiv = "refresh" content = " 2 ; URL = ./req_attendre_tour?compte={compte}&adversaire={adversaire}&miseJoueur={miseJoueur}&miseAdversaire={miseAdversaire}">
+		<meta http-equiv = "refresh" content = " 5 ; URL = ./req_attendre_tour?compte={compte}&adversaire={adversaire}&miseJoueur={miseJoueur}">
 	</head>
 
 	<body background = "../img/tapis_poker_vert_1920x1080.jpg" id = "pageAdversaire">
@@ -19,14 +19,21 @@
 			<img class="cartes" src="../img/cards/{carte2Joueurs}.png"></p>
 			<p><br>
 			<h3>La riviere :</h3><br>
-			<img class="cartes" src="../img/cards/{carte1Riviere}.png">
-			<img class="cartes" src="../img/cards/{carte2Riviere}.png">
-			<img class="cartes" src="../img/cards/{carte3Riviere}.png">
-			<img class="cartes" src="../img/cards/{carte4Riviere}.png">
-			<img class="cartes" src="../img/cards/{carte5Riviere}.png"></p><br>
+		<!--	<img class="cartes" src="../img/cards/{carte1Riviere}.png">-->
+			{carte1Riviere}
+			{carte2Riviere}
+			{carte3Riviere}
+		<!--	<img class="cartes" src="../img/cards/{carte2Riviere}.png"> -->
+		<!--	<img class="cartes" src="../img/cards/{carte3Riviere}.png"> -->
+		<!--	<img class="cartes" src="../img/cards/{carte4Riviere}.png"> -->
+			{carte4Riviere}
+			{carte5Riviere}
+		<!--	<img class="cartes" src="../img/cards/{carte5Riviere}.png"></p><br> -->
 			<!--<p><h3>Votre solde : {soldeJoueur}</h3></p><br>
 			<p><h3>Solde de l'adversaire : {soldeAdversaire}</h3></p><br> -->
-			<p><h3>Pot : {pot}</h3> </p><br>
+			<p><h3>Pot : {pot}</h3> </p><br>				
+			<h2>Votre solde : {soldeJoueur}</h2>
+			<h2>Le solde de votre adversaire : {soldeAdversaire}</h2>
 
 			<a href = "./req_salon_multi?compte={compte}"><button>Retour salon</button></a>		
 			<br><br><br><br>
