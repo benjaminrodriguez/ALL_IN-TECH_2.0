@@ -16,30 +16,23 @@ modifs faites :
 - modifier le pot et la mise dans req-miser
 - modele page attendre le pot ne se change pas
 - regle du jeu
+- completer schema de nav
+- revoir les codes que l'on presente
+- ajouter le code dans le ppt
+- table sur page adversaire
+- bug d'affichage des cartes
 
 modifs principales à faire :
 
-	BENJAMIN
-
-- finir IA
-- mode visiteur
-- ajouter le code dans le ppt
-	
-	KEVIN
-
 - finir css
-- bug d'affichage des cartes
-- table sur page adversaire
-- completer schema de nav
-	
-	NAHEL
-
-- ALLIN
 - version demo
-- revoir les codes que l'on presente
+- NaN dans miser
 
 modifs secondaire à faire :
 
+- finir IA
+- mode visiteur
+- ALLIN
 - mettre des jetons de poker et design table de poker sur page_joueur
 - finir rejouer
 - finir flushRoyale et couleur

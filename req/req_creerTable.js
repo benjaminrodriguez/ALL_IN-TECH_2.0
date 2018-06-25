@@ -113,6 +113,7 @@ var trait = function (req, res, query) {
 	nouvellePartie.main[1] = [];
 
 	// MISE DE CHAQUE JOUERS
+	nouvellePartie.mise = Number(nouvellePartie.mise);
 	nouvellePartie.mise = [];
 	nouvellePartie.mise[0] = 0;
 	nouvellePartie.mise[1] = 0;
@@ -183,10 +184,6 @@ var trait = function (req, res, query) {
 	contenu_partie = JSON.stringify(nouvellePartie);
 	fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie, "UTF-8");
 
-	// LECTURE DU JSON DE LA PARIE POUR POUVOIR PARAMETRER LES MARQUEURS
-//	contenu_partie = fs.readFileSync("./tables/"+query.compte+".json", "UTF-8");
-//	nouvellePartie = JSON.parse(contenu_partie);
-
 	// CALCUL DES MAINS
 	partie = query.compte;
 	riviere = nouvellePartie.river;
@@ -210,7 +207,7 @@ var trait = function (req, res, query) {
 	}
 
 	// AFFICHAGE DE LA PAGE DE JEU
-	page = fs.readFileSync("./html/modele_page_joueur.html" , "UTF-8");
+	page = fs.readFileSync("./html/modele_joue_p1.html" , "UTF-8");
 
 	// MARQUEURS HTML
 	marqueurs = {};
@@ -228,8 +225,11 @@ var trait = function (req, res, query) {
 	marqueurs.soldeAdversaire = soldeAdversaire;
 	marqueurs.pot = pot;
 	marqueurs.miseJoueur = miseJoueur;
-	marqueurs.miseAdversaire = miseAdversaire;
-
+	if (miseAdversaire === null) {
+		marqueurs.miseAdversaire = 0;
+	} else {
+		marqueurs.miseAdversaire = miseAdversaire;
+	}
 	marqueurs.compte = query.compte;
 	marqueurs.adversaire = query.adversaire;
 	page = page.supplant(marqueurs);

@@ -1,48 +1,51 @@
+
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta http-equiv = 'Content-Type' content = 'text/html; charset = UTF-8' />
-		<title>Voici la page de résultat</title>
-		<link rel = "shortcut icon" href = "../img/lacoste.png" type = "image/x-icon"/> 
-	    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
-		<!--<meta http-equiv = "refresh" content = " 5 ; URL = ./req_rejouer?compte={compte}&adversaire={adversaire}">-->
-	</head>
+	<!-- ATTENDRE P4 -->
+<head>
+	<title>Page attente</title>
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+	<link rel = "shortcut icon" href = "../img/lacoste.png" type = "image/x-icon"/>
+	<link rel = "stylesheet" type="text/css" href = "../css/reset.css" />
+	<link rel = "stylesheet" type="text/css" href ="../css/resultat.css" />
+</head>
 
-	<body background = "../img/tapis_poker_vert_1920x1080.jpg" id = "pageResultat">
-		<center>
-			<h1>Voici le resultat</h1>
-
-			<br><br>
-
-			<p><h3>Vos cartes :</h3> 
-			<img class="cartes" src="../img/cards/{carteJoueurs}.png"> 
-			<img class="cartes" src="../img/cards/{carte2Joueurs}.png"></p><br>
-			<p><h3>Cartes de l'adversaire:</h3> 
-			<img class="cartes" src="../img/cards/{carte1Adversaire}.png"> 
-			<img class="cartes" src="../img/cards/{carte2Adversaire}.png">
-			</p><br>
-			<p>
-			<h3>La riviere:</h3>
+<body>
+	<main id = "pageAdversaire" class="plateau">
+		<div id="part0">
+			<img class="cartes carte2 carteDistribution" src="../img/carte_verso_2.png">
+			<img class="cartes carte4 carteDistribution" src="../img/carte_verso_2.png">
+		</div>
+		<div id="part1">
+			<img class="cartes carteAdversaire" src="../img/cards/{carte1Adversaire}.png">
+			<br>
+			<p>${soldeAdversaire}</p>
+			<img class="cartes carteAdversaire carteAdversaire2" src="../img/cards/{carte2Adversaire}.png">
+			</div>
+		<div id="part2">
+			<p>Pot : ${pot}</p>
+			<br>
 			{carte1Riviere}
 			{carte2Riviere}
 			{carte3Riviere}
 			{carte4Riviere}
-			{carte5Riviere}
-
-			<!--<img class="cartes"src="../img/cards/{carte1Riviere}.png">
-			<img class="cartes" src="../img/cards/{carte2Riviere}.png">
-			<img class="cartes" src="../img/cards/{carte3Riviere}.png">
-			<img class="cartes" src="../img/cards/{carte4Riviere}.png">
-			<img class="cartes" src="../img/cards/{carte5Riviere}.png"></p>-->
-			<p><h3>Pot: {pot}</h3></p>
-
-			<br><br>
-		<h2>{resultat}</h2>	
-			<br><br>
+			{carte5Riviere}</p>
+			<br>
+			<br>
+			<p>${soldeJoueur}</p>
+			<br>
+			<img class="cartes carte1Joueur" src="../img/cards/{carteJoueurs}.png">
+			<img class="cartes carte2Joueur" src="../img/cards/{carte2Joueurs}.png"></p>
+		</div>
+		<div id="part3">
+			<h2>{resultat}</h2>
+			<br>
 			<a href= "./req_salon_multi?compte={compte}"><button>Faire une nouvelle partie</button></a>
 			<br><br>
 			<a href= "./req_actualiser_accueil_membres?compte={compte}"><button>Retour à l'accueil</button></a>
 			<br><br>
-		</center>
+		</div>
+	</main>	
 	</body>
 </html>
+

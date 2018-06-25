@@ -38,8 +38,6 @@ var trait = function (req, res, query) {
 	var miseAdversaire;
 	var miseJoueurNombre = Number(query.miseJoueur);
 	var miseAdversaireNombre = Number(query.miseAdversaire);
-	var choix;
-
 
 	// LECTURE DU JSON CONNECTE POUR SAVOIR QUELS JOUEURS VEULENT JOUER
 	contenu_fichier = fs.readFileSync("./json/connecte.json", "UTF-8");
@@ -50,9 +48,6 @@ var trait = function (req, res, query) {
 	for (i = 0 ; i < membres.length; i++) {
 		if (membres[i].compte === query.compte) {
 			a=i;
-			//			if (membres[a].connecte === true) {
-			//				adversaire_trouve = true; 	
-			//			}
 		}
 	}
 
@@ -62,37 +57,28 @@ var trait = function (req, res, query) {
 		}
 	}
 
-	for (i=0; i < membres.length; i++){
-		if( membres[i].compte === query.adversaire){
+	for (i=0; i < membres.length; i++) {
+		if( membres[i].compte === query.adversaire) {
 			b=i;
 		}
 	}
 
-
-	console.log("ADVERSAIRE"+membres[b].compte);
-
 	if (membres[b].connecte === true ) {
-
 		membres[a].table = "";
 		membres[a].adversaire = "";
 		membres[b].table="";
 		membres[b].adversaire="";
 		joueurs = "";
+
 		for (i = 0; i < membres.length; i++) {
 			// SI LE JOUEUR EST CONNECTE ET ATTEND UN ADVERSAIRE DANS LE SALON MULTI
 			if (membres[i].compte !== query.compte && membres[i].connecte === true && membres[i].libre === true) {
-				// ON PEUT LE PASSER EN <a href == ?
 				joueurs += "<form action = '/req_defier' method='GET'><input type = 'hidden' name='compte' value='"+ query.compte +"'><input type='submit' name='adversaire' value='"+ membres[i].compte +"'></form>";
 			}
 		}
-
 		page = fs.readFileSync ("./html/modele_accueil_membre.html" , "UTF-8");
-		//	page = fs.readFileSync ("./html/modele_salon_multi.html" , "UTF-8");
 
 	} else if (membres[a].connecte === "joue") {
-
-		// LECTURE DU JSON DE LA PARIE POUR POUVOIR PARAMETRER LES MARQUEURS
-
 		contenu_partie = fs.readFileSync("./tables/"+partie+".json", "UTF-8");
 		nouvellePartie = JSON.parse(contenu_partie);
 
@@ -119,24 +105,17 @@ var trait = function (req, res, query) {
 
 		pot = nouvellePartie.pot;
 
-		if (pot === 0) {
-			choix = "miser";
-		}else {
-			choix = "relancer";
-		}
-
-		carte1Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
-		carte2Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
-		carte3Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
-		carte4Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
-		carte5Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
-
+		carte1Riviere = "<img class='cartes carte1Riviere' src='../img/carte_verso_2.png'>";
+		carte2Riviere = "<img class='cartes carte2Riviere' src='../img/carte_verso_2.png'>";
+		carte3Riviere = "<img class='cartes carte3Riviere' src='../img/carte_verso_2.png'>";
+		carte4Riviere = "<img class='cartes carte4Riviere' src='../img/carte_verso_2.png'>";
+		carte5Riviere = "<img class='cartes carte5Riviere' src='../img/carte_verso_2.png'>";
 
 		// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
 		contenu_partie = JSON.stringify(nouvellePartie);
 		fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
 
-		page = fs.readFileSync("./html/modele_page_adversaire.html", "UTF-8");
+		page = fs.readFileSync("./html/modele_attendre_p1.html", "UTF-8");
 
 	} else if (membres[a].connecte === "attente") {
 		page = fs.readFileSync("./html/modele_attendre_reponse.html" , "UTF-8");
@@ -145,7 +124,6 @@ var trait = function (req, res, query) {
 		console.log("ERREUR");
 		page = fs.readFileSync ("./html/modele_error.html" , "UTF-8");
 	}
-
 
 	// MARQUEURS HTML
 	marqueurs = {};
@@ -165,7 +143,6 @@ var trait = function (req, res, query) {
 	marqueurs.miseAdversaire = 0;
 	marqueurs.soldeJoueur = soldeJoueur;
 	marqueurs.soldeAdversaire = soldeAdversaire;
-	marqueurs.choix = choix;
 	marqueurs.pot = pot;
 
 	marqueurs.joueurs = joueurs;
@@ -173,11 +150,9 @@ var trait = function (req, res, query) {
 	marqueurs.adversaire = query.adversaire;
 	page = page.supplant(marqueurs);
 
-
 	res.writeHead(200, {'Content-Type': 'text/html'});
 	res.write(page);
 	res.end();
-
 };
 
 //-------------------------------------------------------------------------//

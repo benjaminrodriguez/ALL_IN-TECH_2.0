@@ -49,7 +49,6 @@ var trait = function (req, res, query) {
 		contenu_fichier = JSON.stringify(liste_membres);
 		fs.writeFileSync("./json/connecte.json", contenu_fichier, 'UTF-8');
 	}
-	// UTILE ? ON A DEJA LU PLUS HAUT !
 	contenu_fichier = fs.readFileSync("./json/connecte.json", 'UTF-8');
 	liste_membres = JSON.parse(contenu_fichier);
 	

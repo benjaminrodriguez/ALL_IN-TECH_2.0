@@ -1,4 +1,3 @@
-
 /* CSS */
 
 /*===========================================================*/
@@ -22,6 +21,10 @@ h2{
 /*          		  IMAGE / GIF                            */
 /*===========================================================*/
 
+body {
+	background-image: url("../img/tapis_poker_vert_1920x1080.jpg");
+}
+
 .logo {
 	width:1500px;
 }
@@ -42,13 +45,15 @@ h2{
 	width:1150px;
 }
 .allin {
-	width:200px;
+	width:150px;
+	border: 3px grey solid;
+	border-radius: 20%;
 }
 .plateau {
 	background-image: url("../img/table_de_jeu.png");
 	background-repeat: no-repeat;
 	background-size: cover;
-	height: 800px;
+	height: 1000px;
 	width: 100%;
 }
 
@@ -79,6 +84,27 @@ h2{
 /*                       PAGE JOUEUR                         */
 /*===========================================================*/
 
+.bouton:hover {
+	cursor: pointer;
+}
+
+.rouge {
+	background-color: red;
+}
+
+.orange {
+	background-color: orange;
+}
+
+.bouton {
+	padding: 3px;
+	text-transform: uppercase;
+	font-size: 15px;;
+	color: black;
+	border: 3px black solid;
+	text-decoration: none;
+}
+
 #part1, #part2, #part3 {
 	width: 33%;
 }
@@ -94,11 +120,9 @@ h2{
 	bottom: -25px;
 }
 
-
-#part3 {
+#part3{
 	position: relative;
-	bottom: -270px;
-	left: -170px;
+	bottom: -40px;
 }
 
 #pageJoueur, #pageAdversaire {
@@ -121,7 +145,7 @@ h2{
 }
 
 .carte1{
-	animation: carte1 1.3s 2s 1 forwards, flipBack 1s 12s 1 forwards;
+	animation: carte1 1s 2s 1 forwards, flipBack 1s 6.5s 1 forwards;
 	transform-style: preserve-3d;
 	transform-origin: 50% 50% 0;
 /*	animation-delay: 2s;
@@ -131,62 +155,32 @@ h2{
 }
 
 .carte2{
-	animation: carte2 1.3s 1;
+	animation: carte2 1s 1;
 	animation-fill-mode: forwards;
 	animation-delay: 2.5s;
 }
 
 .carte3{
-	animation: carte3 1.3s 3.5s 1 forwards, flipBack 1s 11s 1 forwards;
+	animation: carte3 1s 3.5s 1 forwards, flipBack 1s 5.5s 1 forwards;
 	transform-style: preserve-3d;
 	transform-origin: 50% 50% 0;
 }
 
 .carte4{
-	animation: carte4 1.3s 1;
+	animation: carte4 1s 1;
 	animation-fill-mode: forwards;
 	animation-delay: 4.5s;
 }
 
-.carte5{
-	animation: carte5 1.3s 1;
-	animation-fill-mode: forwards;
-	animation-delay: 5.5s;
-}
-
-.carte6{
-	animation: carte6 1.3s 1;
-	animation-fill-mode: forwards;
-	animation-delay: 6.5s;
-}
-
-.carte7{
-	animation: carte7 1.3s 1;
-	animation-fill-mode: forwards;
-	animation-delay: 7.5s;
-}
-
-.carte8{
-	animation: carte8 1.3s 1;
-	animation-fill-mode: forwards;
-	animation-delay: 8.5s;
-}
-
-.carte9{
-	animation: carte9 1.3s 1;
-	animation-fill-mode: forwards;
-	animation-delay: 9.5s;
-}
-
 .carte1Joueur {
-	animation: flip 1s 11s 1 forwards;
+	animation: flip 1s 5.5s 1 forwards;
 	transform: rotateY(180deg);
 	backface-visibility: hidden;
 }
 
 
 .carte2Joueur {
-	animation: flip 1s 12s 1 forwards;
+	animation: flip 1s 6.5s 1 forwards;
 	transform: rotateY(180deg);
 	backface-visibility: hidden;
 }
@@ -254,7 +248,7 @@ h2{
 
 	100% {
 		top: 286px;
-		right: 450px;
+		right: 430px;
 		transform: rotate(90deg); 
 	}
 }
@@ -291,7 +285,7 @@ h2{
 
 	100% {
 		top: 204px;
-		right: 450px;
+		right: 430px;
 		transform: rotate(90deg); 
 	}
 }

@@ -1,0 +1,128 @@
+
+/* CSS */
+
+/*===========================================================*/
+/*          		       GLOBAL                            */
+/*===========================================================*/
+
+*{
+	box-sizing: border-box;
+}
+
+h2{
+	font-size: 20px;
+}
+
+#pageStructure , #pageJoueur , #pageAttendre , #pageAdversaire , #pageResultat {
+	color : GhostWhite;
+	font-family: sans-serif;
+}
+
+/*===========================================================*/
+/*          		  IMAGE / GIF                            */
+/*===========================================================*/
+
+body {
+    background-image: url("../img/tapis_poker_vert_1920x1080.jpg");
+}
+
+
+.logo {
+	width:1500px;
+}
+
+.logo_accueil_membres {
+	width:1000px;
+}
+
+.logo_accueil {
+    width:1000px;
+}
+
+.gif_salon_multi, .gif_cat {
+	width:300px;
+}
+
+.logo_reponse_defi {
+	width:1150px;
+}
+.allin {
+	width:200px;
+}
+.plateau {
+	background-image: url("../img/table_de_jeu.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 1000px;
+	width: 100%;
+}
+
+
+/* CARTES */
+.cartes{
+	width:73px;
+}
+
+.carteAdversaire {
+	transform: rotate(90deg);
+	position: relative; 
+	top: 20px;
+	left: -100px;
+}
+
+.carteAdversaire2 {
+	position: relative;
+	top: -28px;
+}
+
+.carteDistribution, .carte5Riviere {
+	opacity: 0;
+}
+
+
+/*===========================================================*/
+/*                       PAGE JOUEUR                         */
+/*===========================================================*/
+
+#part1, #part2, #part3 {
+	width: 33%;
+}
+
+#part1{
+	position: relative;
+	top: -20px;
+	left: 15px;
+}
+
+#part2 {
+	position: relative;
+	bottom: -25px;
+}
+
+
+#part3 {
+	position: relative;
+	bottom: -270px;
+	left: -170px;
+}
+
+#pageJoueur, #pageAdversaire {
+	text-align: center;
+	padding-top: 215px;
+	line-height: 20px;
+	display: flex;
+}
+
+#part0 {
+	position: absolute;
+	top: 10px;
+	left: 47%;
+}
+
+.carteDistribution {
+	position: absolute;
+	top: 0px;
+
+}
+
+
