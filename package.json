@@ -2,10 +2,11 @@
 	"name": "ALL_INTECH", 
 	"version": "1.0",
 	"dependencies": {
-		"remedial": ""
+		"remedial": "",
+		"url": "",
+		"querystring": ""
 	},
 	"engines": {
 		"node": ""
 	}
 }
-
