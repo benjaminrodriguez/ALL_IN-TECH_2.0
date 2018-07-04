@@ -1,0 +1,12 @@
+{
+	"name": "ALL_INTECH", 
+	"version": "1.0",
+	"main": "./DEMO/ALL_IN'TECH.js",
+	"dependencies": {
+		"remedial": ""
+	},
+	"engines": {
+		"node": ""
+	}
+}
+
