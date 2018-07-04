@@ -1,1 +1,1 @@
-web : node ./DEMO/ALL_IN'TECH.js
+web: node ./DEMO/ALL_IN\'TECH.js
