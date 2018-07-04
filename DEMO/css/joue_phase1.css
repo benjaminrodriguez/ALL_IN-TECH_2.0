@@ -1,0 +1,398 @@
+/* CSS */
+
+/*===========================================================*/
+/*          		       GLOBAL                            */
+/*===========================================================*/
+
+*{
+	box-sizing: border-box;
+}
+
+h2{
+	font-size: 20px;
+}
+
+#pageStructure , #pageJoueur , #pageAttendre , #pageAdversaire , #pageResultat {
+	color : GhostWhite;
+	font-family: sans-serif;
+}
+
+/*===========================================================*/
+/*          		  IMAGE / GIF                            */
+/*===========================================================*/
+
+body {
+	background-image: url("../img/tapis_poker_vert_1920x1080.jpg");
+}
+
+.logo {
+	width:1500px;
+}
+
+.logo_accueil_membres {
+	width:1000px;
+}
+
+.logo_accueil {
+    width:1000px;
+}
+
+.gif_salon_multi, .gif_cat {
+	width:300px;
+}
+
+.logo_reponse_defi {
+	width:1150px;
+}
+.allin {
+	width:150px;
+	border: 3px grey solid;
+	border-radius: 20%;
+}
+.plateau {
+	background-image: url("../img/table_de_jeu.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 1400px;
+	width: 100%;
+}
+
+.size {
+	font-size:50px;
+}
+
+/* CARTES */
+.cartes{
+	width:180px;
+}
+
+.carteAdversaire {
+	transform: rotate(90deg);
+	position: relative; 
+	top: 20px;
+	left: -100px;
+}
+
+.carteAdversaire2 {
+	position: relative;
+	top: -28px;
+}
+
+.carteAdversaire, .carteAdversaire, .carte1Riviere, .carte2Riviere, .carte3Riviere, .carte4Riviere, .carte5Riviere {
+	opacity: 0;
+}
+
+
+/*===========================================================*/
+/*                       PAGE JOUEUR                         */
+/*===========================================================*/
+
+.bouton:hover {
+	cursor: pointer;
+}
+
+.rouge {
+	background-color: red;
+}
+
+.orange {
+	background-color: orange;
+}
+
+.bouton {
+	padding: 3px;
+	text-transform: uppercase;
+	font-size: 30px;;
+	color: black;
+	border: 3px black solid;
+	text-decoration: none;
+}
+
+#part1, #part2, #part3 {
+	width: 33%;
+}
+
+#part1{
+	position: relative;
+	top: -20px;
+	left: 15px;
+}
+
+#part2 {
+	position: relative;
+	bottom: -25px;
+}
+
+#part3{
+	position: relative;
+	bottom: -40px;
+}
+
+#pageJoueur, #pageAdversaire {
+	text-align: center;
+	padding-top: 550px;
+	line-height: 20px;
+	display: flex;
+}
+
+#part0 {
+	position: absolute;
+	top: 10px;
+	left: 47%;
+}
+
+.carteDistribution {
+	position: absolute;
+	top: 0px;
+
+}
+
+.carte1{
+	animation: carte1 1s 2s 1 forwards, flipBack 1s 6.5s 1 forwards;
+	transform-style: preserve-3d;
+	transform-origin: 50% 50% 0;
+	backface-visibility: hidden; 
+/*	animation-delay: 2s;
+	transition-delay: 9s;
+	transform: rotateY(180deg);
+	backface-visibility: hidden; */
+}
+
+.carte2{
+	animation: carte2 1s 1;
+	animation-fill-mode: forwards;
+	animation-delay: 2.5s;
+}
+
+.carte3{
+	animation: carte3 1s 3.5s 1 forwards, flipBack 1s 5.5s 1 forwards;
+	transform-style: preserve-3d;
+	transform-origin: 50% 50% 0;
+	backface-visibility: hidden; 
+}
+
+.carte4{
+	animation: carte4 1s 1;
+	animation-fill-mode: forwards;
+	animation-delay: 4.5s;
+}
+
+.carte1Joueur {
+	animation: flip 1s 5.5s 1 forwards;
+	transform: rotateY(180deg);
+	backface-visibility: hidden;
+}
+
+
+.carte2Joueur {
+	animation: flip 1s 6.5s 1 forwards;
+	transform: rotateY(180deg);
+	backface-visibility: hidden;
+}
+
+
+/*===========================================================*/
+/*                         ANIMATION                         */
+/*===========================================================*/
+
+@keyframes fade {
+	from {opacity: 1;}
+	to {opacity: 0;}
+}
+
+@keyframes flip {
+	from {
+		transform-style: preserve-3d;
+		transform-origin: 50% 50% 0;
+	}	
+	to {
+		transform: rotateY(0deg);
+	}
+}
+
+@keyframes flipBack {
+	from {
+		transform-style: preserve-3d;
+		transform-origin: 50% 50% 0;
+	}	
+	to {
+		transform: rotateY(180deg);
+	}
+}
+
+
+/* CARTE 1 */
+@keyframes carte1 {
+	0% {
+		top:0px;
+		transform: rotate(0deg);
+	}
+
+	5%{
+		left: 15px;
+	}
+
+	100% {
+		top: 1060px;
+		left: 83px;
+		transform: rotate(180deg);
+	}
+}
+
+/* CARTE 2 */
+@keyframes carte2 {
+	0% {
+		top:0px;
+		transform: rotate(0deg); 
+	}
+
+	30%{
+		top: 15px;
+		right: 15px;
+	}
+
+	100% {
+		top: 710px;
+		right: 990px;
+		transform: rotate(90deg); 
+	}
+}
+
+/* CARTE 3 */
+@keyframes carte3 {
+	0% {
+		top:0px;
+		transform: rotate(0deg);
+	}
+
+	5%{
+		left: 15px;
+	}
+
+	100% {
+		top: 1060px;
+		left: -110px;
+		transform: rotate(180deg);
+	}
+}
+
+/* CARTE 4 */
+@keyframes carte4 {
+	0% {
+		top:0px;
+		transform: rotate(0deg); 
+	}
+
+	30%{
+		top: 15px;
+		right: 15px;
+	}
+
+	100% {
+		top: 520px;
+		right: 990px;
+		transform: rotate(90deg); 
+	}
+}
+
+/* CARTE 5 */
+@keyframes carte5 {
+	0% {
+		top:0px;
+		transform: rotate(0deg); 
+	}
+
+	5%{
+		left: 15px;
+	}
+
+	100% {
+		top: 270px;
+		left: -167px;
+		transform: rotate(180deg); 
+	}
+}
+
+/* CARTE 6 */
+@keyframes carte6 {
+	0% {
+		top:0px;
+		transform: rotate(0deg); 
+	}
+
+	5%{
+		left: 15px;
+	}
+
+	100% {
+		top: 270px;
+		left: -86px;
+		transform: rotate(180deg); 
+	}
+}
+
+/* CARTE 7 */
+@keyframes carte7 {
+	0% {
+		top:0px;
+		transform: rotate(0deg); 
+	}
+
+	5%{
+		left: 15px;
+	}
+
+	100% {
+		top: 270px;
+		left: -5px;
+		transform: rotate(180deg); 
+	}
+}
+
+/* CARTE 8 */
+@keyframes carte8 {
+	0% {
+		top:0px;
+		transform: rotate(0deg); 
+	}
+
+	5%{
+		left: 15px;
+	}
+
+	100% {
+		top: 270px;
+		left: 76px;
+		transform: rotate(180deg); 
+	}
+}
+
+/* CARTE 9 */
+@keyframes carte9 {
+	0% {
+		top:0px;
+		transform: rotate(0deg); 
+	}
+
+	5%{
+		left: 15px;
+	}
+
+	100% {
+		top: 270px;
+		left: 157px;
+		transform: rotate(180deg); 
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+

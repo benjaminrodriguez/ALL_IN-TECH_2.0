@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+	<!-- JOUE PHASE 4 -->
+	<head>
+		<title>Page de jeu</title>
+		<meta http-equiv= 'Content-Type' content = 'text/html; charset = UTF-8'/>
+		<link rel = "shortcut icon" href = "../img/lacoste.png" type = "image/x-icon"/>
+		<link rel = "stylesheet" type="text/css" href = "../css/reset.css" />
+		<link rel = "stylesheet" type="text/css" href ="../css/joue_phase4.css" />
+	</head>
+
+	<body>
+		<main id = "pageJoueur" class="plateau">
+			<div id="part0">
+				<img class="cartes carte9 carteDistribution" src="../img/carte_verso_2.png">
+			</div>
+			<div id="part1">
+				<img class="cartes carteAdversaire" src="../img/carte_verso_2.png">
+				<br>
+				<p>${soldeAdversaire}</p>
+				<img class="cartes carteAdversaire carteAdversaire2" src="../img/carte_verso_2.png">
+			</div>
+			<div id="part2">
+					<p>Pot : ${pot}</p>
+					<br>
+						{carte1Riviere}
+						{carte2Riviere}
+						{carte3Riviere}
+						{carte4Riviere}
+						{carte5Riviere}</p>
+						<br>
+						<br>
+					<p>${soldeJoueur}</p>
+						<br>
+						<img class="cartes carte1Joueur" src="../img/cards/{carteJoueurs}.png">
+						<img class="cartes carte2Joueur" src="../img/cards/{carte2Joueurs}.png"></p>
+			</div>
+			<div id="part3">
+				<form action="./req_miser" method="GET">
+					<input type="hidden" name="compte" value={compte}>
+					<input type="hidden" name="adversaire" value={adversaire}>
+					<input type="number" name="miseJoueur" placeholder={miseAdversaire} step="100" min={miseAdversaire} max={soldeJoueur}>
+					<input type="hidden" name="pot" value={pot}>
+					<br>
+					<br>
+					<input class="bouton orange"type="submit" value="miser">
+				</form><br>
+				
+				<a class="bouton rouge"href="./req_coucher?compte={compte}&adversaire={adversaire}">Se coucher</a>
+			</div>
+		</main>
+	</body>
+</html>

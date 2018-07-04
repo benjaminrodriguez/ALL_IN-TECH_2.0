@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+		<title>Formulaire d'inscription</title>
+		<link rel = "shortcut icon" href = "../img/lacoste.png" type = "image/x-icon"/> 
+	    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+	</head>
+
+	<body background = "../img/tapis_poker_vert_1920x1080.jpg" id = "pageStructure">
+		<center>
+			<h1>Formulaire de création d'un compte ALL IN'TECH</h1>
+
+			<img src = "./img/logo_final_transparent.png" class="logo_accueil">
+			{erreur}
+			<p/>
+
+			<form action="/req_inscrire" method="GET">
+				<label class="size">Pseudo : </label> <br> <input type="text" name="compte" value = "">
+				<br><br>
+				<label class="size">Mot de passe : </label> <br> <input type="password" name = "mdp" value="">
+			<!--	<br><br>
+				<label>Confirmation : </label> <br> <input type = "password" name = confirmation value = "">
+				-->
+				<br><br>
+				<button name="action" class="size" value="creer">Créer compte</button>
+			</form>
+		</center>
+	</body>
+</html>

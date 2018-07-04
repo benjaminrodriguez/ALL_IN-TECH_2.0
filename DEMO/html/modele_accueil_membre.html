@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Accueil membre</title>
+		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+		<link rel = "shortcut icon" href = "../img/lacoste.png" type = "image/x-icon"/> 
+	    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+
+	</head>
+
+	<body background = "../img/tapis_poker_vert_1920x1080.jpg" id = "pageStructure">
+		<center>
+			<img src = "./img/logo_final_transparent.png" class="logo_accueil_membres"><br>
+			<h2>Bonjour <em>{compte}</em> et bienvenue sur la page d'accueil membres !</h2><br>
+			</p>
+			<fieldset>
+				<h2>Apprendre à jouer au Texas Hold'em Poker</h2><br>
+				<a href="./req_regles?compte={compte}"><button class="size">Règles du jeu</button></a><br><br>
+				<h2>Rejoindre le salon multijoueurs</h2><br>
+
+				<a href="./req_salon_multi?compte={compte}"><button class="size">Salon multijoueurs</button></a><br>
+			<!--	
+				<hr><br>
+				<h2>Partie conte M. ALL IN'TECH</h2>
+				<a href="./req_creer_table_IA?compte={compte}"><button>Lancer la partie</button></a><br>
+			-->	
+			<!--
+				<br>
+				<hr><br>
+				<h2>Rejoindre le salon visiteurs</h2>
+				<a href="./req_salon_multi?compte={compte}"><button>Salon visiteurs</button></a>
+				-->
+				<br>
+			</fieldset>
+			<br><br>			
+				<a href="./req_deconnexion?compte={compte}"><button class="size" name="deconnexion">Déconnexion</button></a>
+		</center>
+	</body>
+</html>

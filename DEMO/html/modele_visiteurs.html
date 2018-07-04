@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Salon multi</title>
+		<meta http-equiv = 'Content-Type' content = 'text/html; charset=utf-8' />
+		<link rel = "shortcut icon" href = "../img/lacoste.png" type = "image/x-icon"/> 
+		<meta http-equiv = "refresh" content = "3; url=/req_reponse_hote?compte={compte}">
+	    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+	</head>
+
+	<body background = "./img/tapis_poker_vert_1920x1080.jpg" id = "pageResultat">
+		<center>
+			<img src = "./img/logo_final_transparent.png" class="logo"><br><br>
+			<h2>Bienvenue <label><em>{compte}</em></label> dans le salon visiteurs !
+			</h2><br><br>
+			<h2>Tu peux regarder les tables ci-dessous</h2>
+			<br>
+			{visiteurs}
+			<br><br>
+			<img src = "../img/gif/200w_005.gif" class="gif_salon_multi">
+			<br><br>
+			<br><br>
+			<a href = "./req_deconnexion?compte={compte}"><button>Déconnexion</button></a>
+		</center>
+	</body>
+</html>

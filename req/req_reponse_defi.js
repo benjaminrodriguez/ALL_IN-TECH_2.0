@@ -36,8 +36,7 @@ var trait = function (req, res, query) {
 	var pot;
 	var miseJoueur;
 	var miseAdversaire;
-	var miseJoueurNombre = Number(query.miseJoueur);
-	var miseAdversaireNombre = Number(query.miseAdversaire);
+	var miseJoueur = Number(query.miseJoueur);
 
 	// LECTURE DU JSON CONNECTE POUR SAVOIR QUELS JOUEURS VEULENT JOUER
 	contenu_fichier = fs.readFileSync("./json/connecte.json", "UTF-8");
@@ -90,6 +89,7 @@ var trait = function (req, res, query) {
 			nouvellePartie.mise[1] = miseAdversaire;
 			soldeJoueur = nouvellePartie.solde[0];
 			soldeAdversaire = nouvellePartie.solde[1];
+			miseAdversaire = nouvellePartie.mise[1];
 		}
 
 
@@ -101,6 +101,7 @@ var trait = function (req, res, query) {
 			nouvellePartie.mise[0] = miseAdversaire;
 			soldeJoueur = nouvellePartie.solde[1];
 			soldeAdversaire = nouvellePartie.solde[0];
+			miseAdversaire = nouvellePartie.mise[0];
 		}
 
 		pot = nouvellePartie.pot;
@@ -140,7 +141,7 @@ var trait = function (req, res, query) {
 	marqueurs.carte5Riviere = carte5Riviere;
 
 	marqueurs.miseJoueur = miseJoueur;
-	marqueurs.miseAdversaire = 0;
+	marqueurs.miseAdversaire = miseAdversaire;
 	marqueurs.soldeJoueur = soldeJoueur;
 	marqueurs.soldeAdversaire = soldeAdversaire;
 	marqueurs.pot = pot;
