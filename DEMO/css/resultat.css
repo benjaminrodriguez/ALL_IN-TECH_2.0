@@ -58,22 +58,25 @@ body {
 	background-image: url("../img/table_de_jeu.png");
 	background-repeat: no-repeat;
 	background-size: cover;
-	height: 1000px;
+	height: 1400px;
 	width: 100%;
 }
 
+.size {
+    font-size: 50px;
+}
 
 /* CARTES */
 .cartes{
-	width:73px;
+	width:180px;
 }
 
 .carteAdversaire {
 	animation: flip 1s 1s 1 forwards;
 	transform: rotate(90deg);
 	position: relative; 
-	top: 20px;
-	left: -100px;
+	top: -20px;
+	left: -137px;
 	transform: rotateY(180deg);
 	backface-visibility: hidden;
 }
@@ -81,7 +84,7 @@ body {
 .carteAdversaire2 {
 	animation: flip 1s 2s 1 forwards;
 	position: relative;
-	top: -28px;
+	top: -85px;
 }
 
 .carte5Riviere {
@@ -116,7 +119,7 @@ body {
 
 #pageJoueur, #pageAdversaire {
 	text-align: center;
-	padding-top: 215px;
+	padding-top: 550px;
 	line-height: 20px;
 	display: flex;
 }
@@ -135,16 +138,16 @@ body {
 
 .carte2 {
 	animation: flipBack 1s 2s 1 forwards;
-	top: 286px;
-	right: 430px;
+	top: 710px;
+	right: 990px;
 	transform: rotate(90deg);
 	backface-visibility: hidden;
 }
 
 .carte4 {
 	animation: flipBack 1s 1s 1 forwards;
-    top: 204px;
-	right: 430px;
+    top: 520px;
+	right: 990px;
 	transform: rotate(90deg);
 	backface-visibility: hidden;
 					

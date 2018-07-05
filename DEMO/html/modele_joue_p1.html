@@ -47,13 +47,15 @@
 				<form action="./req_miser" method="GET">
 					<input type="hidden" name="compte" value={compte}>
 					<input type="hidden" name="adversaire" value={adversaire}>
-					<input type="number" name="miseJoueur" placeholder = {miseEnCours} step="100" min={miseEnCours} max={soldeJoueur}>
+					<input type="number" name="miseJoueur" placeholder={miseEnCours} class="size" step="100" min={miseEnCours} max={soldeJoueur}>
 					<input type="hidden" name="pot" value={pot}>
 					<br>
 					<br>
 					<input class="bouton orange" type="submit" value="miser">
-				</form><br>
-				<a class="bouton rouge" href="./req_coucher?compte={compte}&adversaire={adversaire}">Se coucher<a>
+				</form>
+				<br>
+				<a class="bouton rouge" href="./req_coucher?compte={compte}&adversaire={adversaire}">Se coucher</a>
+				<br><br>
 			</div>
 		</main>
 		<footer class="combi">

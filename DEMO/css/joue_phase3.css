@@ -47,32 +47,39 @@ body {
 
 .allin {
 	width:200px;
+	border: 3px grey solid;
+	border-radius: 20%;
+
 }
 
 .plateau {
 	background-image: url("../img/table_de_jeu.png");
 	background-repeat: no-repeat;
 	background-size: cover;
-	height: 1000px;
+	height: 1400px;
 	width: 100%;
+}
+
+.size {
+    font-size:50px;
 }
 
 
 /* CARTES */
 .cartes{
-	width:75px;
+	width:180px;
 }
 
 .carteAdversaire {
 	transform: rotate(90deg);
 	position: relative; 
-	top: 20px;
-	left: -100px;
+	top: -20px;
+	left: -137px;
 }
 
 .carteAdversaire2 {
 	position: relative;
-	top: -28px;
+	top: -85px;
 }
 
 .carte5Riviere {
@@ -95,7 +102,7 @@ body {
 .bouton {
 	padding: 3px;
 	text-transform: uppercase;
-	font-size: 15px;;
+	font-size: 30px;;
 	color: black;
 	border: 3px black solid;
 	text-decoration: none;
@@ -124,7 +131,7 @@ body {
 
 #pageJoueur, #pageAdversaire {
 	text-align: center;
-	padding-top: 215px;
+	padding-top: 550px;
 	line-height: 20px;
 	display: flex;
 }
@@ -145,6 +152,7 @@ body {
 	animation: carte8 1s 2s 1 forwards, flipBack 1s 4s 1 forwards;
 	transform-style: preserve-3d;
 	transform-origin: 50% 50% 0;
+	backface-visibility: hidden;
 }
 
 .carte4Riviere {
@@ -190,8 +198,8 @@ body {
 	}
 
 	100% {
-		top: 270px;
-		left: 76px;
+		top: 605px;
+		left: 175px;
 		transform: rotate(180deg); 
 	}
 }

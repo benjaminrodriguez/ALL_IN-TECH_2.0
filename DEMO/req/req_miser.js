@@ -52,7 +52,7 @@ var trait = function (req, res, query) {
 
 	nouvellePartie.pot = Number(query.pot);
 
-	miseJoueur = Number(query.miseJoueur)
+	miseJoueur = Number(query.miseJoueur);
 
 		// JOUEURS 1
 		if (query.compte === nouvellePartie.joueurs[0]) {
@@ -91,8 +91,8 @@ var trait = function (req, res, query) {
 	nouvellePartie.phase += 1;
 
 	// AFFICHAGE DE LA PAGE RESULTAT
-	if (nouvellePartie.phase <= 6) {
-		if (nouvellePartie.phase === 1 || nouvellePartie.phase === 2) {
+	if (nouvellePartie.phase <= 6 && soldeJoueur !== 0) {
+		if (soldeJoueur !== 0 && nouvellePartie.phase === 1 || nouvellePartie.phase === 2) {
 			carte1Riviere = "<img class='cartes carte1Riviere' src='../img/carte_verso_2.png'>";
 			carte2Riviere = "<img class='cartes carte2Riviere' src='../img/carte_verso_2.png'>";
 			carte3Riviere = "<img class='cartes carte3Riviere' src='../img/carte_verso_2.png'>";
@@ -100,7 +100,7 @@ var trait = function (req, res, query) {
 			carte5Riviere = "<img class='cartes carte5Riviere' src='../img/carte_verso_2.png'>";
 
 			page = fs.readFileSync("./html/modele_attendre_p2.html", "UTF-8");
-		} else if (nouvellePartie.phase === 3 || nouvellePartie.phase === 4) {
+		} else if (soldeJoueur !== 0 && nouvellePartie.phase === 3 || nouvellePartie.phase === 4) {
 			carte1Riviere = "<img class='cartes carte1Riviere' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>";
 			carte2Riviere = "<img class='cartes carte2Riviere' src='../img/cards/"+nouvellePartie.river[1].couleur+nouvellePartie.river[1].valeur+".png'>";
 			carte3Riviere = "<img class='cartes carte3Riviere' src='../img/cards/"+nouvellePartie.river[2].couleur+nouvellePartie.river[2].valeur+".png'>";
@@ -108,7 +108,7 @@ var trait = function (req, res, query) {
 			carte5Riviere = "<img class='cartes carte5Riviere' src='../img/carte_verso_2.png'>";
 
 			page = fs.readFileSync("./html/modele_attendre_p3.html", "UTF-8");
-		} else if (nouvellePartie.phase === 5 || nouvellePartie.phase === 6) {
+		} else if (soldeJoueur !== 0 && nouvellePartie.phase === 5 || nouvellePartie.phase === 6) {
 			carte1Riviere = "<img class='cartes carte1Riviere' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>";
 			carte2Riviere = "<img class='cartes carte2Riviere' src='../img/cards/"+nouvellePartie.river[1].couleur+nouvellePartie.river[1].valeur+".png'>";
 			carte3Riviere = "<img class='cartes carte3Riviere' src='../img/cards/"+nouvellePartie.river[2].couleur+nouvellePartie.river[2].valeur+".png'>";
@@ -116,7 +116,7 @@ var trait = function (req, res, query) {
 			carte5Riviere = "<img class='cartes carte5Riviere' src='../img/carte_verso_2.png'>";
 
 			page = fs.readFileSync("./html/modele_attendre_p4.html", "UTF-8");
-		} else if (nouvellePartie.phase === 6) {
+		} else if (soldeJoueur !== 0 && nouvellePartie.phase === 6) {
 			carte1Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>";
 			carte2Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[1].couleur+nouvellePartie.river[1].valeur+".png'>";
 			carte3Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[2].couleur+nouvellePartie.river[2].valeur+".png'>";
@@ -131,7 +131,7 @@ var trait = function (req, res, query) {
 		fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
 
 		//	page = fs.readFileSync("./html/modele_page_adversaire.html", "UTF-8");
-	} else if(nouvellePartie.phase > 6) {
+	} else if(nouvellePartie.phase > 6 || soldeJoueur === 0) {
 		nouvellePartie.attendre[x] = true;
 
 

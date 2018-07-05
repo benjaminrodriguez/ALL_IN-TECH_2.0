@@ -48,7 +48,8 @@ body {
 	width:150px;
 	border: 3px grey solid;
 	border-radius: 20%;
-}
+} 
+
 .plateau {
 	background-image: url("../img/table_de_jeu.png");
 	background-repeat: no-repeat;
@@ -97,6 +98,10 @@ body {
 
 .orange {
 	background-color: orange;
+}
+
+.vert {
+	background-color: green;
 }
 
 .bouton {

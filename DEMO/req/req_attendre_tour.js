@@ -54,6 +54,12 @@ var trait = function (req, res, query) {
 	} else if (nouvellePartie.tour !== query.compte) {
 		joue = "en_attente";
 	}
+	
+	if (nouvellePartie.miseEnCours > soldeJoueur) {
+		nouvellePartie.miseEnCours = 0
+	} else {
+		nouvellePartie.miseEnCours = nouvellePartie.miseEnCours;
+	}
 
 	// JOUEUR 1
 	if (query.compte === nouvellePartie.joueurs[0]) {
@@ -78,7 +84,12 @@ var trait = function (req, res, query) {
 		soldeAdversaire = nouvellePartie.solde[0];
 		miseAdversaire = Number(nouvellePartie.mise[0]);
 	}
+
+		if (nouvellePartie.miseEnCours > soldeJoueur) {
+			nouvellePartie.miseEnCours === soldeJoueur;
+		} else {
 		nouvellePartie.miseEnCours = miseAdversaire;
+		}
 
 	pot = nouvellePartie.pot; 
 

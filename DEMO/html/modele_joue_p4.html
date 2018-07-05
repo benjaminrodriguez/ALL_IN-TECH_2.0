@@ -15,13 +15,13 @@
 				<img class="cartes carte9 carteDistribution" src="../img/carte_verso_2.png">
 			</div>
 			<div id="part1">
+				<p class="size">${soldeAdversaire}</p>
 				<img class="cartes carteAdversaire" src="../img/carte_verso_2.png">
 				<br>
-				<p>${soldeAdversaire}</p>
 				<img class="cartes carteAdversaire carteAdversaire2" src="../img/carte_verso_2.png">
 			</div>
 			<div id="part2">
-					<p>Pot : ${pot}</p>
+					<p class="size">Pot : ${pot}</p>
 					<br>
 						{carte1Riviere}
 						{carte2Riviere}
@@ -30,7 +30,13 @@
 						{carte5Riviere}</p>
 						<br>
 						<br>
-					<p>${soldeJoueur}</p>
+					<p class="size">${soldeJoueur}</p>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
 						<br>
 						<img class="cartes carte1Joueur" src="../img/cards/{carteJoueurs}.png">
 						<img class="cartes carte2Joueur" src="../img/cards/{carte2Joueurs}.png"></p>
@@ -39,7 +45,7 @@
 				<form action="./req_miser" method="GET">
 					<input type="hidden" name="compte" value={compte}>
 					<input type="hidden" name="adversaire" value={adversaire}>
-					<input type="number" name="miseJoueur" placeholder={miseAdversaire} step="100" min={miseAdversaire} max={soldeJoueur}>
+					<input type="number" name="miseJoueur" placeholder={miseEnCours} step="100" min={miseEnCours} max={soldeJoueur}>
 					<input type="hidden" name="pot" value={pot}>
 					<br>
 					<br>

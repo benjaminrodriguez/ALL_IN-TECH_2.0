@@ -51,26 +51,17 @@ body {
 	background-image: url("../img/table_de_jeu.png");
 	background-repeat: no-repeat;
 	background-size: cover;
-	height: 1000px;
+	height: 1400px;
 	width: 100%;
 }
 
+.size {
+    font-size: 50px;
+}
 
 /* CARTES */
 .cartes{
-	width:73px;
-}
-
-.carteAdversaire {
-	transform: rotate(90deg);
-	position: relative; 
-	top: 20px;
-	left: -100px;
-}
-
-.carteAdversaire2 {
-	position: relative;
-	top: -28px;
+	width:180px;
 }
 
 .carteAdversaire, .carteAdversaire, .carte1Riviere, .carte2Riviere, .carte3Riviere, .carte4Riviere, .carte5Riviere {
@@ -106,7 +97,7 @@ body {
 
 #pageJoueur, #pageAdversaire {
 	text-align: center;
-	padding-top: 215px;
+	padding-top: 550px;
 	line-height: 20px;
 	display: flex;
 }
