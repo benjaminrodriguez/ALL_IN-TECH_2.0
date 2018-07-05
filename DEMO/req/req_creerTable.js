@@ -91,7 +91,7 @@ var trait = function (req, res, query) {
 	distribution = require("../fonctions/function_distribution_cartes.js");
 
 	// APPEL DES FONCTIONS
-//	melange();
+	melange();
 
 	nouvellePartie = {};
 	nouvellePartie.admin = query.compte;
